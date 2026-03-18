@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historisk arkiv – Sundlo og Ringset-slektene</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+        --navy: #1c3557;
+        --navy-light: #2a4a7a;
+        --gold: #9a6e1a;
+        --gold-light: #f5edda;
+        --cream: #faf7f2;
+        --paper: #ffffff;
+        --text: #2d2929;
+        --text-muted: #7a726b;
+        --border: #ddd5c8;
+        --shadow: rgba(28, 53, 87, 0.12);
+    }
+
+    body {
+        font-family: 'Source Sans 3', system-ui, sans-serif;
+        background: var(--cream);
+        color: var(--text);
+        line-height: 1.85;
+        font-size: 17px;
+        min-height: 100vh;
+    }
+
+    a { color: var(--navy); text-decoration: none; }
+    a:hover { color: var(--gold); text-decoration: underline; }
+
+    .hero {
+        background: linear-gradient(135deg, var(--navy) 0%, #263f6b 60%, #2a4a7a 100%);
+        color: white;
+        padding: 90px 30px 80px;
+        text-align: center;
+        border-bottom: 5px solid var(--gold);
+    }
+    .hero h1 {
+        font-family: 'Lora', Georgia, serif;
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+    .hero .subtitle {
+        font-size: 1.15rem;
+        opacity: 0.82;
+        max-width: 580px;
+        margin: 0 auto;
+        line-height: 1.6;
+        font-weight: 300;
+    }
+
+    .intro-block {
+        max-width: 720px;
+        margin: 55px auto;
+        padding: 0 30px;
+    }
+    .intro-card {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--gold);
+        border-radius: 6px;
+        padding: 28px 32px;
+        box-shadow: 0 2px 12px var(--shadow);
+    }
+    .intro-card h2 {
+        font-family: 'Lora', Georgia, serif;
+        color: var(--navy);
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+    .intro-card p {
+        margin-bottom: 0.8em;
+        color: #4a4540;
+        line-height: 1.75;
+        font-size: 0.96rem;
+    }
+    .intro-card p:last-child { margin-bottom: 0; }
+
+    .categories-section {
+        max-width: 1060px;
+        margin: 0 auto 70px;
+        padding: 0 30px;
+    }
+
+    .category-block { margin-bottom: 50px; }
+
+    .category-header {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--gold);
+    }
+    .category-header .icon { font-size: 1.3rem; }
+    .category-header h2 {
+        font-family: 'Lora', Georgia, serif;
+        color: var(--navy);
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+    .category-header .desc {
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        margin-left: auto;
+        font-style: italic;
+    }
+
+    .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 12px;
+    }
+    .doc-card {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        padding: 14px 18px;
+        transition: border-color 0.18s, box-shadow 0.18s, transform 0.12s;
+    }
+    .doc-card:hover {
+        border-color: var(--gold);
+        box-shadow: 0 3px 14px var(--shadow);
+        transform: translateY(-1px);
+    }
+    .doc-card a {
+        color: var(--navy);
+        font-weight: 600;
+        font-size: 0.95rem;
+        display: block;
+        line-height: 1.4;
+    }
+    .doc-card:hover a { color: var(--gold); text-decoration: none; }
+
+    footer.site-footer {
+        background: var(--navy);
+        color: rgba(255,255,255,0.5);
+        text-align: center;
+        padding: 30px;
+        font-size: 0.82rem;
+        letter-spacing: 0.2px;
+    }
+
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>Historisk arkiv</h1>
+        <p class="subtitle">Sundlo- og Ringset-slektenes historiearkiv –<br>
+        norske frivillige i Russland og slektshistorie</p>
+    </header>
+
+
+    <div class="intro-block">
+        <div class="intro-card">
+            <h2>Om arkivet</h2>
+            <p>Etter at jeg ble pensjonist i 1992, tok jeg for meg å renskrive en del av min fars notater vedrørende vår slekts historie., og samlet dessuten en del nye opplysninger om familiene Sundlo og Speilberg. Dette materialet har jeg kopiert og spredt blant den nærmeste familie, slik at alle skal kunne vite litt mer om sin bakgrunn.</p>
+<p>Men min far hadde også omfattende notater fra sitt samvær med norske krigsfrivillige i Russland – frontkjemperne – og disse bør ha interesse, så vel for hans egen familie som for historien. Jeg har derfor også renskrevet et utvalg av disse notatene.</p>
+        </div>
+    </div>
+
+    <section class="categories-section">
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="icon">📜</span>
+                <h2>Formål og bakgrunn</h2>
+                <span class="desc">Innledning og bakgrunnen for dette arkivet</span>
+            </div>
+            <div class="doc-grid">
+            <div class="doc-card">
+                <a href="HTML/Formål.html">Formål – innledning av Harald Sundlo</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="icon">📖</span>
+                <h2>Konrad Sundlo forteller</h2>
+                <span class="desc">Erindringer fra Kaukasus og Russland, nedskrevet av Harald Sundlo</span>
+            </div>
+            <div class="doc-grid">
+            <div class="doc-card">
+                <a href="HTML/Russland & Byen med det gylne skinn 1.html">Russland & Byen med det gylne skinn – del 1</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/Byen med det gylne skinn 2.html">Russland & Byen med det gylne skinn – del 2</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/Byen med det gylne skinn 3 og Nansen.html">Russland & Byen med det gylne skinn – del 3 og Nansen</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/Byen med kanonen.html">Narvik 1940 – Byen med kanonen</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="icon">⚔️</span>
+                <h2>Politikompaniet</h2>
+                <span class="desc">Historier fra 1. Politikompani – Den Norske Legion</span>
+            </div>
+            <div class="doc-grid">
+            <div class="doc-card">
+                <a href="HTML/1.Politi.html">1. Politikompani – Fenrik Bødtker forteller</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/2 Politi.html">1. Politikompani – Fortellinger del 2</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/3politi.html">1. Politikompani – Fortellinger del 3</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="icon">🎖️</span>
+                <h2>Regiment Nordland</h2>
+                <span class="desc">Beretninger fra Regiment Nordland</span>
+            </div>
+            <div class="doc-grid">
+            <div class="doc-card">
+                <a href="HTML/5konordl.html">Med 5. kompani Regiment Nordland – Dagfinn Henriksen</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/7konordl.html">Med 7. kompani Regiment Nordland – Erling Larsen</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="icon">🗂️</span>
+                <h2>Legioner og bataljoner</h2>
+                <span class="desc">Historier fra Den Norske Legion og tilknyttede enheter</span>
+            </div>
+            <div class="doc-grid">
+            <div class="doc-card">
+                <a href="HTML/Legiogri.html">Den Norske Legion – organisasjon og grunnlag</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/Legpans.html">Den Norske Legion – pansertropper</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/Reggerm.html">Med Germania – Arnt Torp forteller</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/Skibat.html">Skibataljonen</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="icon">🌳</span>
+                <h2>Sundloslekten</h2>
+                <span class="desc">Slektshistorie – familien Sundlo og tilknyttede familier</span>
+            </div>
+            <div class="doc-grid">
+            <div class="doc-card">
+                <a href="HTML/hist3.html">Jørgen Pederssøn Schjelderup</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist5.html">Hans Nielsen Speilberg</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist 9 Conrad Lassen.html">Conrad Lassen</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist10 Konrad Bertram Holm Sundlo.html">Konrad Bertram Holm Sundlo</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist 13 Johan Marius Sundlo.html">Johan Marius Sundlo</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist15.html">Halfdan Sundlo</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist16.html">John Kjelbergsen Sundlo</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist17.html">Grim Saxvik</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist22.html">Mortine Kjelbergsdatter Sundlo</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist23 Kjelberg Johnsen Sundlo.html">Kjelberg Johnsen Sundlo</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist37 Albertine Sundlo.html">Albertine Sundlo</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist38 Othelie Sundlo.html">Othelie Sundlo</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist119.html">Anders Larsen Holm</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist139  Peder Paulsen (Leth).html">Peder Paulsen (Leth)</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist140.html">Paul Jensen Tved</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist142 Paul Pedersen Dons.html">Paul Pedersen Dons</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist151 Lorentz Dons.html">Lorentz Dons</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist154 Mathias Conrad Peterson.html">Mathias Conrad Peterson</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist156 Johan Peter Muller.html">Johan Peter Muller</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/Hist158 Karl Dons.html">Karl Dons</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist160.html">Georg Burchard Baade</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist163.html">Gjørtleren på Jøråshaugen – Christian Andersen Holm</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist205.html">Frøystein Ringset</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist208.html">Michel Baade – Hanseatisk kjøpmann i Bergen</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist209.html">Hans Baade – Hanseatisk kjøpmann i Bergen</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist210.html">Daniel Baade – Grønlandsmisjonen</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist212.html">Peter Baade – Bergen</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist213.html">Steffen Baade – Bergen</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist235.html">Korrespondanse med Johannes Gundersen, Levanger</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist254.html">Peter Daniel Baade – Prest og jurist</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist255.html">Michael Baade – Misjonær i Porsanger</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist274.html">Harald Hårfagre</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist282.html">Halvdan Svarte</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist310.html">Fredrik Anton Olai Baade</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist430.html">Nils Edvard Olsen Ringset</a>
+            </div>
+            <div class="doc-card">
+                <a href="HTML/hist431 Marie Saxvik.html">Marie Saxvik</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="icon">🌿</span>
+                <h2>Ringsetslekten</h2>
+                <span class="desc">Slektshistorie – familien Ringset</span>
+            </div>
+            <div class="doc-grid">
+            <div class="doc-card">
+                <a href="HTML/Marta Ringset-Minneoppgave.html">Marta Ringset – Minneoppgave</a>
+            </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="site-footer">
+        Historisk arkiv – Sundlo og Ringset-slektene &nbsp;·&nbsp;
+        Nedskrevet av Harald Sundlo, Asker 1993/94
+    </footer>
+</body>
+</html>

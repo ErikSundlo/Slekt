@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main page -->
   <url>
     <loc>https://eriksundlo.github.io/Slekt/</loc>
+    <priority>1.0</priority>
   </url>
+
+  <!-- Formål -->
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Formål.html</loc></url>
+
+  <!-- Russland / Konrad Sundlo -->
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Russland%20%26%20Byen%20med%20det%20gylne%20skinn%201.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Byen%20med%20det%20gylne%20skinn%202.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Byen%20med%20det%20gylne%20skinn%203%20og%20Nansen.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Byen%20med%20kanonen.html</loc></url>
+
+  <!-- Politikompaniet -->
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/1.Politi.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/2%20Politi.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/3politi.html</loc></url>
+
+  <!-- Regiment Nordland -->
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/5konordl.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/7konordl.html</loc></url>
+
+  <!-- Legion -->
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Legiogri.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Legpans.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Reggerm.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Skibat.html</loc></url>
+
+  <!-- Sundlo -->
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist3.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist5.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist%209%20Conrad%20Lassen.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist10%20Konrad%20Bertram%20Holm%20Sundlo.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist%2013%20Johan%20Marius%20Sundlo.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist15.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist16.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist17.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist22.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist23%20Kjelberg%20Johnsen%20Sundlo.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist37%20Albertine%20Sundlo.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist38%20Othelie%20Sundlo.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist119.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist139%20%20Peder%20Paulsen%20(Leth).html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist140.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist142%20Paul%20Pedersen%20Dons.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist151%20Lorentz%20Dons.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist154%20Mathias%20Conrad%20Peterson.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist156%20Johan%20Peter%20Muller.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Hist158%20Karl%20Dons.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist160.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist163.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist205.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist208.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist209.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist210.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist212.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist213.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist235.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist254.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist255.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist274.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist282.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist310.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist430.html</loc></url>
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/hist431%20Marie%20Saxvik.html</loc></url>
+
+  <!-- Ringset -->
+  <url><loc>https://eriksundlo.github.io/Slekt/HTML/Marta%20Ringset-Minneoppgave.html</loc></url>
+
 </urlset>

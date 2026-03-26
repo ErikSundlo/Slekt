@@ -13,9 +13,12 @@ Arkivet inneholder blant annet:
 - historiske notater og erindringer
 - materiale nedskrevet og samlet av Harald Sundlo i Asker 1993/94
 
+
 ## Historisk merknad
 
-Deler av materialet omtaler krig, fronttjeneste og andre historisk og politisk betente temaer. Dokumentene er publisert som historisk kildemateriale og må leses i sin historiske sammenheng.
+Arkivet bygger også på notater og erindringer knyttet til Konrad Sundlo, som gir et særpreget innblikk i personer, miljøer og hendelser.
+
+Han var en sammensatt historisk skikkelse, og materialet er derfor tatt inn som kildestoff og bør leses i lys av sin tid.
 
 ## Struktur
 

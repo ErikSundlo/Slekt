@@ -383,6 +383,215 @@
             width: 100%;
         }
     }
+
+    .search-toolbar {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 12px;
+        flex-wrap: wrap;
+    }
+
+    .search-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .search-button,
+    .search-chip,
+    .search-select {
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--navy);
+        border-radius: 8px;
+        font: inherit;
+    }
+
+    .search-button {
+        padding: 10px 12px;
+        cursor: pointer;
+        transition: 0.15s ease;
+    }
+
+    .search-button:hover,
+    .search-chip:hover,
+    .search-select:hover {
+        border-color: var(--gold);
+        background: var(--gold-light);
+    }
+
+    .search-chip-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+    }
+
+    .search-chip {
+        padding: 7px 10px;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+
+    .search-chip.active {
+        background: var(--navy);
+        border-color: var(--navy);
+        color: #fff;
+    }
+
+    .search-meta-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: center;
+        margin-top: 12px;
+    }
+
+    .search-select {
+        padding: 9px 10px;
+    }
+
+    .search-badges {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+    }
+
+    .search-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 10px;
+        background: var(--gold-light);
+        border: 1px solid #e8d9b8;
+        border-radius: 999px;
+        color: #5b4d2f;
+        font-size: 0.88rem;
+    }
+
+    .search-results-section {
+        margin: 0 auto 34px;
+    }
+
+    .results-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+    }
+
+    .results-header p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+    }
+
+    .results-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .results-panel {
+        display: grid;
+        gap: 12px;
+    }
+
+    .result-card {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px 18px;
+        box-shadow: 0 1px 8px var(--shadow-soft);
+    }
+
+    .result-card h3 {
+        font-size: 1rem;
+        line-height: 1.45;
+    }
+
+    .result-card h3 a {
+        color: var(--navy);
+    }
+
+    .result-card h3 a:hover {
+        color: var(--gold);
+        text-decoration: none;
+    }
+
+    .result-meta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+        color: var(--text-muted);
+        font-size: 0.88rem;
+    }
+
+    .result-snippet {
+        margin-top: 10px;
+        color: #4a4540;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    mark.search-highlight {
+        background: #fff1b8;
+        color: inherit;
+        padding: 0 2px;
+        border-radius: 3px;
+    }
+
+    .loading-line {
+        margin-top: 12px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .loading-bar {
+        margin-top: 8px;
+        width: 100%;
+        height: 8px;
+        background: #efe8dc;
+        border-radius: 999px;
+        overflow: hidden;
+    }
+
+    .loading-bar > span {
+        display: block;
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--navy-light), var(--gold));
+        transition: width 0.25s ease;
+    }
+
+    .kbd {
+        display: inline-block;
+        min-width: 1.7em;
+        padding: 1px 6px;
+        border: 1px solid var(--border);
+        border-bottom-width: 2px;
+        border-radius: 6px;
+        background: #fff;
+        font-size: 0.82rem;
+        line-height: 1.6;
+        text-align: center;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+
+    @media (max-width: 700px) {
+        .search-meta-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .results-header {
+            align-items: flex-start;
+        }
+    }
+
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -444,16 +653,45 @@
                             type="search"
                             id="searchInput"
                             placeholder="Søk etter navn, sted eller tema …"
-                            aria-describedby="searchHelp"
+                            aria-describedby="searchHelp searchStatus"
+                            autocomplete="off"
+                            spellcheck="false"
                         >
                     </div>
-                    <p id="searchHelp" class="search-help">
-                        Tips: prøv søk som <em>Sundlo</em>, <em>Ringset</em>, <em>Baade</em>, <em>Narvik</em>,
-                        <em>Russland</em> eller <em>Speilberg</em>.
-                    </p>
+                    <div class="search-toolbar">
+                        <div class="search-actions">
+                            <button type="button" class="search-button" id="clearSearchButton">Tøm søk</button>
+                            <button type="button" class="search-button" id="luckyButton">Overrask meg</button>
+                        </div>
+                    </div>
+                    <div class="search-chip-row" aria-label="Hurtigsøk">
+                        <button type="button" class="search-chip" data-query="Sundlo">Sundlo</button>
+                        <button type="button" class="search-chip" data-query="Ringset">Ringset</button>
+                        <button type="button" class="search-chip" data-query="Baade">Baade</button>
+                        <button type="button" class="search-chip" data-query="Russland">Russland</button>
+                        <button type="button" class="search-chip" data-query="Narvik">Narvik</button>
+                        <button type="button" class="search-chip" data-query="Konrad Sundlo">Konrad Sundlo</button>
+                    </div>
+                    <div class="search-meta-grid">
+                        <p id="searchHelp" class="search-help">
+                            Tips: prøv søk som <em>Sundlo</em>, <em>Ringset</em>, <em>Baade</em>, <em>Narvik</em>,
+                            <em>Russland</em> eller <em>Speilberg</em>. Tast <span class="kbd">/</span> for å hoppe til søk.
+                        </p>
+                        <label>
+                            <span class="hidden">Sorter søketreff</span>
+                            <select id="sortResults" class="search-select" aria-label="Sorter søketreff">
+                                <option value="relevance">Sorter: relevans</option>
+                                <option value="title">Sorter: tittel</option>
+                                <option value="category">Sorter: kategori</option>
+                            </select>
+                        </label>
+                    </div>
                     <p class="summary-bar" id="resultSummary">
                         Viser hele arkivet.
                     </p>
+                    <div class="search-badges" id="searchBadges" aria-live="polite"></div>
+                    <div class="loading-line" id="searchStatus">Bygger søkeindeks for hele arkivet …</div>
+                    <div class="loading-bar" aria-hidden="true"><span id="loadingBarFill"></span></div>
                 </div>
 
                 <div class="tool-card">
@@ -468,6 +706,22 @@
                         <a href="#ringsetslekten">Ringsetslekten</a>
                     </nav>
                 </div>
+            </div>
+        </section>
+
+
+        <section class="search-results-section" aria-labelledby="search-results-title">
+            <div class="tool-card">
+                <div class="results-header">
+                    <div>
+                        <h2 id="search-results-title">Treff i dokumentene</h2>
+                        <p id="searchResultsInfo">Skriv i søkefeltet for å søke i hele arkivet, også inni undersidene.</p>
+                    </div>
+                    <div class="results-actions">
+                        <button type="button" class="search-button" id="expandAllResultsButton">Vis alle treff</button>
+                    </div>
+                </div>
+                <div id="searchResults" class="results-panel"></div>
             </div>
         </section>
 
@@ -656,6 +910,22 @@
         const categories = Array.from(document.querySelectorAll('[data-category]'));
         const noResults = document.getElementById('noResults');
         const resultSummary = document.getElementById('resultSummary');
+        const searchResults = document.getElementById('searchResults');
+        const searchResultsInfo = document.getElementById('searchResultsInfo');
+        const sortResults = document.getElementById('sortResults');
+        const clearSearchButton = document.getElementById('clearSearchButton');
+        const luckyButton = document.getElementById('luckyButton');
+        const expandAllResultsButton = document.getElementById('expandAllResultsButton');
+        const searchStatus = document.getElementById('searchStatus');
+        const loadingBarFill = document.getElementById('loadingBarFill');
+        const searchBadges = document.getElementById('searchBadges');
+        const quickChips = Array.from(document.querySelectorAll('.search-chip'));
+
+        const MAX_RESULTS_DEFAULT = 12;
+        let showAllResults = false;
+        let latestResults = [];
+        let indexReady = false;
+        let loadingPromise = null;
 
         function normalize(text) {
             return (text || '')
@@ -664,13 +934,269 @@
                 .replace(/[\u0300-\u036f]/g, '');
         }
 
-        function updateSearch() {
-            const q = normalize(input.value.trim());
+        function escapeHtml(text) {
+            return (text || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function highlightHtml(text, query) {
+            if (!text) return '';
+            const safe = escapeHtml(text);
+            if (!query) return safe;
+
+            const terms = Array.from(new Set(
+                query.split(/\s+/).map(t => t.trim()).filter(Boolean)
+            ));
+
+            let highlighted = safe;
+            terms
+                .sort((a, b) => b.length - a.length)
+                .forEach(term => {
+                    const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    const re = new RegExp('(' + escapedTerm + ')', 'gi');
+                    highlighted = highlighted.replace(re, '<mark class="search-highlight">$1</mark>');
+                });
+
+            return highlighted;
+        }
+
+        function stripHtml(html) {
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const main = doc.querySelector('main') || doc.body;
+            return main ? (main.innerText || main.textContent || '') : '';
+        }
+
+        function makeSnippet(text, query, length = 240) {
+            const raw = (text || '').replace(/\s+/g, ' ').trim();
+            if (!raw) return '';
+
+            const normalizedText = normalize(raw);
+            const normalizedQuery = normalize(query);
+            let pos = normalizedText.indexOf(normalizedQuery);
+
+            if (pos < 0) {
+                return raw.slice(0, length).trim() + (raw.length > length ? ' …' : '');
+            }
+
+            const start = Math.max(0, pos - 90);
+            const end = Math.min(raw.length, pos + normalizedQuery.length + 150);
+            let snippet = raw.slice(start, end).trim();
+
+            if (start > 0) snippet = '… ' + snippet;
+            if (end < raw.length) snippet = snippet + ' …';
+
+            return snippet;
+        }
+
+        function parseCategory(card) {
+            const block = card.closest('.category-block');
+            const heading = block ? block.querySelector('.category-header h2') : null;
+            return heading ? heading.textContent.trim() : '';
+        }
+
+        function updateUrlQuery(value) {
+            const url = new URL(window.location.href);
+            if (value) url.searchParams.set('q', value);
+            else url.searchParams.delete('q');
+            history.replaceState({}, '', url);
+        }
+
+        function getInitialQuery() {
+            const url = new URL(window.location.href);
+            return url.searchParams.get('q') || '';
+        }
+
+        const pageIndex = cards.map((card, index) => {
+            const link = card.querySelector('a');
+            const meta = card.querySelector('.meta');
+            const category = parseCategory(card);
+
+            return {
+                id: index + 1,
+                card,
+                href: link ? link.getAttribute('href') : '',
+                title: link ? link.textContent.trim() : '',
+                meta: meta ? meta.textContent.trim() : '',
+                keywords: card.getAttribute('data-search') || '',
+                category,
+                fullText: '',
+                fetchedTitle: '',
+                loaded: false,
+                failed: false
+            };
+        }).filter(entry => entry.href);
+
+        async function loadPageText(entry, position, total) {
+            if (entry.loaded) return entry;
+
+            try {
+                const response = await fetch(entry.href, { cache: 'force-cache' });
+                if (!response.ok) {
+                    entry.failed = true;
+                    entry.loaded = true;
+                    return entry;
+                }
+
+                const html = await response.text();
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const main = doc.querySelector('main') || doc.body;
+                const title = doc.querySelector('title');
+
+                entry.fullText = main ? (main.innerText || main.textContent || '') : '';
+                entry.fetchedTitle = title ? title.textContent.trim() : '';
+                entry.loaded = true;
+            } catch (error) {
+                entry.failed = true;
+                entry.loaded = true;
+            } finally {
+                const percent = Math.round((position / total) * 100);
+                loadingBarFill.style.width = percent + '%';
+                searchStatus.textContent = 'Bygger søkeindeks for hele arkivet … ' + position + ' av ' + total + ' dokumenter.';
+            }
+
+            return entry;
+        }
+
+        async function ensureIndexLoaded() {
+            if (indexReady) return;
+            if (loadingPromise) return loadingPromise;
+
+            loadingPromise = (async () => {
+                let completed = 0;
+                for (const entry of pageIndex) {
+                    completed += 1;
+                    await loadPageText(entry, completed, pageIndex.length);
+                }
+                indexReady = true;
+                searchStatus.textContent = 'Søkeindeks klar. Søker i hele arkivet, også inni undersidene.';
+                loadingBarFill.style.width = '100%';
+            })();
+
+            return loadingPromise;
+        }
+
+        function scoreResult(entry, query) {
+            const normalizedQuery = normalize(query);
+            const qTerms = Array.from(new Set(normalizedQuery.split(/\s+/).filter(Boolean)));
+
+            const title = normalize(entry.title);
+            const fetchedTitle = normalize(entry.fetchedTitle);
+            const meta = normalize(entry.meta);
+            const keywords = normalize(entry.keywords);
+            const category = normalize(entry.category);
+            const fullText = normalize(entry.fullText);
+
+            let score = 0;
+
+            qTerms.forEach(term => {
+                if (title.includes(term)) score += 80;
+                if (fetchedTitle.includes(term)) score += 50;
+                if (meta.includes(term)) score += 25;
+                if (keywords.includes(term)) score += 20;
+                if (category.includes(term)) score += 12;
+
+                const occurrences = (fullText.match(new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length;
+                score += Math.min(occurrences * 3, 30);
+            });
+
+            if ((title + ' ' + fetchedTitle).includes(normalizedQuery)) score += 100;
+            if (meta.includes(normalizedQuery)) score += 35;
+            if (keywords.includes(normalizedQuery)) score += 25;
+            if (fullText.includes(normalizedQuery)) score += 30;
+
+            return score;
+        }
+
+        function updateBadges(results, query) {
+            if (!query) {
+                searchBadges.innerHTML = '<span class="search-badge">Hele arkivet vises</span>';
+                return;
+            }
+
+            const categoryCounts = results.reduce((acc, result) => {
+                acc[result.category] = (acc[result.category] || 0) + 1;
+                return acc;
+            }, {});
+
+            const badges = [
+                '<span class="search-badge">' + results.length + ' treff i dokumenter</span>'
+            ];
+
+            Object.entries(categoryCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 4)
+                .forEach(([category, count]) => {
+                    badges.push('<span class="search-badge">' + escapeHtml(category) + ': ' + count + '</span>');
+                });
+
+            searchBadges.innerHTML = badges.join('');
+        }
+
+        function renderResults(results, query) {
+            latestResults = results;
+
+            if (!query) {
+                searchResults.innerHTML = '';
+                searchResultsInfo.textContent = 'Skriv i søkefeltet for å søke i hele arkivet, også inni undersidene.';
+                expandAllResultsButton.classList.add('hidden');
+                updateBadges([], '');
+                return;
+            }
+
+            if (results.length === 0) {
+                searchResults.innerHTML = '';
+                searchResultsInfo.textContent = 'Ingen dokumenter inneholder søket "' + query + '".';
+                expandAllResultsButton.classList.add('hidden');
+                updateBadges([], query);
+                return;
+            }
+
+            const limitedResults = showAllResults ? results : results.slice(0, MAX_RESULTS_DEFAULT);
+            const hiddenCount = results.length - limitedResults.length;
+
+            searchResultsInfo.textContent = results.length + ' dokumenter inneholder søket "' + query + '".';
+            expandAllResultsButton.classList.toggle('hidden', results.length <= MAX_RESULTS_DEFAULT);
+            expandAllResultsButton.textContent = showAllResults ? 'Vis færre treff' : 'Vis alle treff';
+
+            searchResults.innerHTML = limitedResults.map(result => {
+                const snippetBase = result.fullText || result.meta || result.title;
+                const snippet = makeSnippet(snippetBase, query);
+                const titleHtml = highlightHtml(result.title, query);
+                const snippetHtml = highlightHtml(snippet, query);
+
+                return `
+                    <article class="result-card">
+                        <h3><a href="${escapeHtml(result.href)}">${titleHtml}</a></h3>
+                        <div class="result-meta">
+                            <span>${escapeHtml(result.category)}</span>
+                            <span>Relevans: ${result.score}</span>
+                            <span>${escapeHtml(result.href)}</span>
+                        </div>
+                        <p class="result-snippet">${snippetHtml}</p>
+                    </article>
+                `;
+            }).join('');
+
+            if (!showAllResults && hiddenCount > 0) {
+                searchResults.insertAdjacentHTML(
+                    'beforeend',
+                    '<div class="no-results">Det finnes ' + hiddenCount + ' flere treff. Trykk «Vis alle treff» for å se resten.</div>'
+                );
+            }
+
+            updateBadges(results, query);
+        }
+
+        function updateCardFiltering(query) {
             let visibleCards = 0;
 
             cards.forEach(card => {
-                const text = normalize(card.innerText + ' ' + (card.getAttribute('data-search') || ''));
-                const match = q === '' || text.includes(q);
+                const haystack = normalize(card.innerText + ' ' + (card.getAttribute('data-search') || ''));
+                const match = query === '' || haystack.includes(query);
                 card.classList.toggle('hidden', !match);
                 if (match) visibleCards++;
             });
@@ -680,19 +1206,176 @@
                 category.classList.toggle('hidden', !anyVisible);
             });
 
-            noResults.classList.toggle('hidden', visibleCards !== 0);
+            noResults.classList.toggle('hidden', visibleCards !== 0 || query === '');
 
-            if (q === '') {
+            if (query === '') {
                 resultSummary.textContent = 'Viser hele arkivet.';
             } else if (visibleCards === 1) {
-                resultSummary.textContent = '1 dokument matcher søket ditt.';
+                resultSummary.textContent = '1 dokumentkort matcher søket på forsiden.';
             } else {
-                resultSummary.textContent = visibleCards + ' dokumenter matcher søket ditt.';
+                resultSummary.textContent = visibleCards + ' dokumentkort matcher søket på forsiden.';
             }
         }
 
-        input.addEventListener('input', updateSearch);
+        function sortResultsList(results) {
+            const mode = sortResults.value;
+
+            if (mode === 'title') {
+                return [...results].sort((a, b) => a.title.localeCompare(b.title, 'no'));
+            }
+
+            if (mode === 'category') {
+                return [...results].sort((a, b) => {
+                    const categoryCompare = a.category.localeCompare(b.category, 'no');
+                    if (categoryCompare !== 0) return categoryCompare;
+                    return a.title.localeCompare(b.title, 'no');
+                });
+            }
+
+            return [...results].sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, 'no'));
+        }
+
+        function saveRecentSearch(query) {
+            if (!query) return;
+
+            const key = 'slekt_recent_searches';
+            const current = JSON.parse(localStorage.getItem(key) || '[]');
+            const updated = [query, ...current.filter(item => normalize(item) !== normalize(query))].slice(0, 6);
+            localStorage.setItem(key, JSON.stringify(updated));
+        }
+
+        function renderRecentSearches() {
+            const key = 'slekt_recent_searches';
+            const recent = JSON.parse(localStorage.getItem(key) || '[]');
+            const baseBadges = searchBadges.innerHTML;
+
+            if (!recent.length || input.value.trim()) return;
+
+            const recentHtml = recent.map(term => (
+                '<button type="button" class="search-chip" data-recent-query="' + escapeHtml(term) + '">' + escapeHtml(term) + '</button>'
+            )).join('');
+
+            searchBadges.innerHTML = baseBadges + '<span class="search-badge">Nylige søk:</span>' + recentHtml;
+            Array.from(searchBadges.querySelectorAll('[data-recent-query]')).forEach(button => {
+                button.addEventListener('click', () => {
+                    input.value = button.getAttribute('data-recent-query');
+                    runSearch();
+                    input.focus();
+                });
+            });
+        }
+
+        async function runSearch() {
+            const rawQuery = input.value.trim();
+            const query = normalize(rawQuery);
+            showAllResults = false;
+
+            quickChips.forEach(chip => {
+                chip.classList.toggle('active', normalize(chip.getAttribute('data-query')) === query && !!query);
+            });
+
+            updateUrlQuery(rawQuery);
+            updateCardFiltering(query);
+
+            if (!rawQuery) {
+                renderResults([], '');
+                renderRecentSearches();
+                return;
+            }
+
+            searchStatus.textContent = indexReady
+                ? 'Søker i hele arkivet …'
+                : 'Laster og indekserer dokumenter før søk …';
+
+            await ensureIndexLoaded();
+
+            const results = pageIndex
+                .map(entry => {
+                    const haystack = normalize(
+                        entry.title + ' ' +
+                        entry.fetchedTitle + ' ' +
+                        entry.meta + ' ' +
+                        entry.keywords + ' ' +
+                        entry.category + ' ' +
+                        entry.fullText
+                    );
+
+                    if (!haystack.includes(query)) return null;
+
+                    return {
+                        ...entry,
+                        score: scoreResult(entry, rawQuery)
+                    };
+                })
+                .filter(Boolean);
+
+            const sorted = sortResultsList(results);
+            renderResults(sorted, rawQuery);
+            saveRecentSearch(rawQuery);
+            renderRecentSearches();
+        }
+
+        input.addEventListener('input', () => {
+            window.clearTimeout(input._searchDebounce);
+            input._searchDebounce = window.setTimeout(runSearch, 140);
+        });
+
+        input.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
+                input.value = '';
+                runSearch();
+            }
+        });
+
+        sortResults.addEventListener('change', () => {
+            if (!latestResults.length) return;
+            const sorted = sortResultsList(latestResults);
+            renderResults(sorted, input.value.trim());
+        });
+
+        clearSearchButton.addEventListener('click', () => {
+            input.value = '';
+            runSearch();
+            input.focus();
+        });
+
+        luckyButton.addEventListener('click', () => {
+            const randomEntry = pageIndex[Math.floor(Math.random() * pageIndex.length)];
+            if (randomEntry && randomEntry.href) {
+                window.location.href = randomEntry.href;
+            }
+        });
+
+        expandAllResultsButton.addEventListener('click', () => {
+            showAllResults = !showAllResults;
+            renderResults(sortResultsList(latestResults), input.value.trim());
+        });
+
+        quickChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                input.value = chip.getAttribute('data-query') || '';
+                runSearch();
+                input.focus();
+            });
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === '/' && document.activeElement !== input) {
+                event.preventDefault();
+                input.focus();
+                input.select();
+            }
+        });
+
+        const initialQuery = getInitialQuery();
+        if (initialQuery) {
+            input.value = initialQuery;
+        }
+
+        renderRecentSearches();
+        runSearch();
+        ensureIndexLoaded();
     })();
-    </script>
+    </script>    </script>
 </body>
 </html>

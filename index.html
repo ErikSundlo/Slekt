@@ -592,6 +592,23 @@
         }
     }
 
+    .top-bar {
+        background: var(--navy);
+        padding: 7px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 16px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .top-bar a { color: rgba(255,255,255,0.75); letter-spacing:0.3px; }
+    .top-bar a:hover { color:#fff; text-decoration:none; }
+    .top-bar .lang-cur { color:rgba(255,255,255,0.38); cursor:default; }
+    .top-bar .lang-opt { border:1px solid rgba(255,255,255,0.32); padding:2px 8px; border-radius:4px; transition:background 0.15s; }
+    .top-bar .lang-opt:hover { background:rgba(255,255,255,0.12); }
+    .top-bar .bar-sep { color:rgba(255,255,255,0.22); }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -604,6 +621,13 @@
   gtag('config', 'G-83E4R0KXD7');
 </script>
 <body>
+    <div class="top-bar">
+        <span class="lang-cur">Norsk</span>
+        <span class="bar-sep">|</span>
+        <a href="en/index.html" class="lang-opt">English</a>
+        <span class="bar-sep">·</span>
+        <a href="about.html">Om arkivet</a>
+    </div>
     <a class="skip-link" href="#main-content">Hopp til innhold</a>
 
     <header class="hero">
@@ -889,6 +913,14 @@
                     <article class="doc-card" data-search="marta ringset minneoppgave ringset slekt">
                         <a href="HTML/Marta Ringset-Minneoppgave.html">Marta Ringset – Minneoppgave</a>
                         <p class="meta">Minneoppgave og familiehistorie</p>
+                    </article>
+                    <article class="doc-card" data-search="frøystein ringset ringset slekt">
+                        <a href="HTML/hist205.html">Frøystein Ringset</a>
+                        <p class="meta">Biografisk opptegnelse</p>
+                    </article>
+                    <article class="doc-card" data-search="nils edvard olsen ringset ringset slekt">
+                        <a href="HTML/hist430.html">Nils Edvard Olsen Ringset</a>
+                        <p class="meta">Slektshistorisk opptegnelse</p>
                     </article>
                 </div>
             </div>

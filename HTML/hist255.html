@@ -134,14 +134,27 @@
     }
     footer.page-footer a:hover { color: #fff; }
 
+    .lang-switcher { display:flex; align-items:center; gap:4px; margin-right:14px; font-size:0.82rem; font-weight:700; letter-spacing:0.5px; }
+    .lang-cur  { color:rgba(255,255,255,0.40); cursor:default; }
+    .lang-opt  { color:rgba(255,255,255,0.88); border:1px solid rgba(255,255,255,0.35); padding:2px 7px; border-radius:4px; transition:background 0.15s; }
+    .lang-opt:hover { background:rgba(255,255,255,0.15); text-decoration:none !important; color:#fff; }
+    .lang-sep  { color:rgba(255,255,255,0.28); }
+    .nav-about { margin-left:auto; opacity:0.75; }
+    .nav-about:hover { opacity:1; }
     </style>
 </head>
 <body>
     <nav class="top-nav">
         <div class="nav-inner">
+            <div class="lang-switcher">
+                <span class="lang-cur">NO</span>
+                <span class="lang-sep">|</span>
+                <a href="en/hist255.html" class="lang-opt">EN</a>
+            </div>
             <a href="../index.html" class="nav-home">Historisk arkiv</a>
             <span class="nav-sep">›</span>
             <a href="../index.html">Tilbake til oversikten</a>
+            <a href="../about.html" class="nav-about">Om arkivet</a>
         </div>
     </nav>
 

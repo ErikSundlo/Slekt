@@ -1,0 +1,533 @@
+#!/usr/bin/env python3
+"""
+Main runner. Run from the Slekt/ directory: python add_english_main.py
+"""
+import os, sys
+
+# Import the two translation modules
+sys.path.insert(0, os.path.dirname(__file__))
+from add_english import T, add_lang_to_no_file, en_page
+from add_english_p2 import load_p2
+load_p2(T)
+
+# ── Paths ────────────────────────────────────────────────────────────────────
+HTML_DIR = os.path.join(os.path.dirname(__file__), 'HTML')
+EN_DIR   = os.path.join(HTML_DIR, 'en')
+ROOT_DIR = os.path.dirname(__file__)
+
+os.makedirs(EN_DIR, exist_ok=True)
+os.makedirs(os.path.join(ROOT_DIR, 'en'), exist_ok=True)
+
+# ── 1. Modify every Norwegian HTML file & write English version ──────────────
+no_files = [f for f in os.listdir(HTML_DIR)
+            if f.endswith('.html') and f != 'index.html'
+            and os.path.isfile(os.path.join(HTML_DIR, f))]
+
+for fname in no_files:
+    no_path = os.path.join(HTML_DIR, fname)
+    en_path = os.path.join(EN_DIR, fname)
+
+    # Modify Norwegian file
+    add_lang_to_no_file(no_path, fname)
+
+    # Write English file
+    if fname in T:
+        title, header, content = T[fname]
+        html = en_page(title, header, content, fname)
+        with open(en_path, 'w', encoding='utf-8') as f:
+            f.write(html)
+        print(f'  EN: {fname}')
+    else:
+        print(f'  SKIP (no translation): {fname}')
+
+print(f'\nProcessed {len(no_files)} Norwegian files.')
+
+# ── 2. Modify root index.html to add lang-bar ────────────────────────────────
+LANG_BAR_CSS = """\
+    .top-bar {
+        background: var(--navy);
+        padding: 7px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 16px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .top-bar a { color: rgba(255,255,255,0.75); letter-spacing:0.3px; }
+    .top-bar a:hover { color:#fff; text-decoration:none; }
+    .top-bar .lang-cur { color:rgba(255,255,255,0.38); cursor:default; }
+    .top-bar .lang-opt { border:1px solid rgba(255,255,255,0.32); padding:2px 8px; border-radius:4px; transition:background 0.15s; }
+    .top-bar .lang-opt:hover { background:rgba(255,255,255,0.12); }
+    .top-bar .bar-sep { color:rgba(255,255,255,0.22); }
+"""
+
+root_index = os.path.join(ROOT_DIR, 'index.html')
+with open(root_index, encoding='utf-8') as f:
+    idx_html = f.read()
+
+if 'top-bar' not in idx_html:
+    idx_html = idx_html.replace('    </style>\n</head>', LANG_BAR_CSS + '    </style>\n</head>', 1)
+    top_bar = '''\n    <div class="top-bar">
+        <span class="lang-cur">Norsk</span>
+        <span class="bar-sep">|</span>
+        <a href="en/index.html" class="lang-opt">English</a>
+        <span class="bar-sep">·</span>
+        <a href="about.html">Om arkivet</a>
+    </div>'''
+    idx_html = idx_html.replace('<body>\n    <a class="skip-link"', f'<body>{top_bar}\n    <a class="skip-link"', 1)
+    with open(root_index, 'w', encoding='utf-8') as f:
+        f.write(idx_html)
+    print('Modified root index.html')
+
+# ── 3. Write About page ──────────────────────────────────────────────────────
+ABOUT_HTML = """\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – Historical Archive – Sundlo and Ringset Families</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#1c3557;--navy-light:#2a4a7a;--gold:#9a6e1a;--cream:#faf7f2;--paper:#ffffff;--text:#2d2929;--border:#ddd5c8;--shadow:rgba(28,53,87,0.12);}
+    body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.85;font-size:17px;min-height:100vh;}
+    a{color:var(--navy);text-decoration:none;} a:hover{color:var(--gold);text-decoration:underline;}
+    nav.top-nav{background:var(--navy);padding:12px 30px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+    nav.top-nav a{color:rgba(255,255,255,0.88);font-size:0.88rem;font-weight:600;letter-spacing:0.3px;}
+    nav.top-nav a:hover{color:#fff;text-decoration:none;}
+    nav.top-nav .nav-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:12px;}
+    nav.top-nav .nav-home{opacity:0.7;font-size:0.82rem;}
+    .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:55px 30px 50px;text-align:center;border-bottom:4px solid var(--gold);}
+    .page-header h1{font-family:'Lora',Georgia,serif;font-size:2.1rem;font-weight:600;line-height:1.3;max-width:760px;margin:0 auto;}
+    .content-wrapper{max-width:720px;margin:0 auto;padding:60px 30px 90px;background:var(--paper);box-shadow:0 0 40px var(--shadow);min-height:60vh;}
+    .content-wrapper p{margin-bottom:1.3em;line-height:1.9;}
+    .content-wrapper p:last-child{margin-bottom:0;}
+    .contact-line{margin-top:2.5em;padding:22px 26px;background:#f5edda;border-left:4px solid var(--gold);border-radius:0 8px 8px 0;font-size:1.05rem;}
+    footer.page-footer{text-align:center;padding:28px 30px;background:var(--navy);color:rgba(255,255,255,0.55);font-size:0.82rem;}
+    footer.page-footer a{color:rgba(255,255,255,0.7);}
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-home">Historisk arkiv / Historical Archive</a>
+            &nbsp;·&nbsp;
+            <a href="en/index.html">English index</a>
+        </div>
+    </nav>
+    <header class="page-header">
+        <h1>About This Archive</h1>
+    </header>
+    <main class="content-wrapper">
+        <p>One has undertaken, with a filial piety that one trusts borders on the admirable rather than the merely dutiful, to transcribe one's father's scribblings.</p>
+        <p>The scribblings in question belong to Harald Sundlo — who, upon retiring in 1992, set himself the task of rendering legible the accumulated notes of his own father, Konrad Bertram Holm Sundlo, concerning the family's history and Konrad's remarkable experiences in Russia, the Caucasus, and Norway during the first half of the twentieth century. Harald's typescript was subsequently inherited by the present editor, who has digitised it, organised it into categories, and placed it before the public — partly in the hope that it may be of interest, and partly because the alternative was to let it moulder in a drawer, which seemed a waste.</p>
+        <p>The original texts are in Norwegian. English translations have been prepared in a spirit of reasonable fidelity, with occasional concessions to idiom and to the irresistible temptation to let the material speak for itself rather than disappear beneath an excess of translator's footnotes.</p>
+        <p>The archive contains family genealogy, biographical sketches, and first-person accounts of the Eastern Front during the Second World War — the latter being, by any standard, documents of historical as well as familial interest, whatever one's views on the enterprise they describe.</p>
+        <p>Should the reader wish to make contact — whether to point out an error, share additional information about the families concerned, or simply to observe that the handwriting was, in the original, even worse than one might imagine — one may do so at the address below.</p>
+        <div class="contact-line">
+            Erik Sundlo &nbsp;·&nbsp; <a href="mailto:erik.sundlo@gmail.com">erik.sundlo@gmail.com</a>
+        </div>
+    </main>
+    <footer class="page-footer">
+        Historical Archive – The Sundlo and Ringset Families
+    </footer>
+</body>
+</html>"""
+
+about_path = os.path.join(ROOT_DIR, 'about.html')
+with open(about_path, 'w', encoding='utf-8') as f:
+    f.write(ABOUT_HTML)
+print('Written about.html')
+
+# ── 4. Write English index ───────────────────────────────────────────────────
+EN_INDEX = """\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Archive – The Sundlo and Ringset Families</title>
+    <meta name="description" content="A digital archive of family history, biography, and historical documents relating to the Sundlo and Ringset families of Norway.">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#1c3557;--navy-light:#2a4a7a;--gold:#9a6e1a;--gold-light:#f5edda;--cream:#faf7f2;--paper:#ffffff;--text:#2d2929;--text-muted:#6d655e;--border:#ddd5c8;--shadow:rgba(28,53,87,0.12);--max-width:1120px;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.8;font-size:17px;min-height:100vh;}
+    a{color:var(--navy);text-decoration:none;} a:hover{color:var(--gold);text-decoration:underline;}
+    .top-bar{background:var(--navy);padding:7px 30px;display:flex;align-items:center;justify-content:flex-end;gap:16px;font-size:0.82rem;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .top-bar a{color:rgba(255,255,255,0.75);letter-spacing:0.3px;} .top-bar a:hover{color:#fff;text-decoration:none;}
+    .top-bar .lang-cur{color:rgba(255,255,255,0.38);cursor:default;}
+    .top-bar .lang-opt{border:1px solid rgba(255,255,255,0.32);padding:2px 8px;border-radius:4px;transition:background 0.15s;}
+    .top-bar .lang-opt:hover{background:rgba(255,255,255,0.12);}
+    .top-bar .bar-sep{color:rgba(255,255,255,0.22);}
+    .hero{background:linear-gradient(135deg,var(--navy) 0%,#263f6b 60%,#2a4a7a 100%);color:white;padding:80px 30px 68px;text-align:center;border-bottom:5px solid var(--gold);}
+    .hero-inner{max-width:850px;margin:0 auto;}
+    .eyebrow{display:inline-block;margin-bottom:14px;padding:5px 10px;border:1px solid rgba(255,255,255,0.28);border-radius:999px;font-size:0.86rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.88);}
+    .hero h1{font-family:'Lora',Georgia,serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:14px;line-height:1.2;}
+    .hero .subtitle{font-size:1.1rem;opacity:0.9;max-width:680px;margin:0 auto 18px;line-height:1.65;font-weight:300;}
+    .hero-meta{font-size:0.92rem;color:rgba(255,255,255,0.75);}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 30px;}
+    .intro-block{margin:42px auto 30px;}
+    .intro-card{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:30px 32px;box-shadow:0 2px 12px var(--shadow);}
+    .intro-card h2{font-family:'Lora',Georgia,serif;color:var(--navy);font-size:1.2rem;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+    .intro-card p{margin-bottom:0.95em;color:#4a4540;line-height:1.78;font-size:1rem;}
+    .intro-card p:last-child{margin-bottom:0;}
+    .notice{margin-top:18px;padding:14px 16px;background:var(--gold-light);border:1px solid #e5d4a8;border-radius:8px;color:#51452d;font-size:0.95rem;}
+    .categories-section{margin:30px auto 70px;}
+    .category-block{margin-bottom:50px;scroll-margin-top:28px;}
+    .category-header{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--gold);flex-wrap:wrap;}
+    .category-header .icon{font-size:1.3rem;}
+    .category-header h2{font-family:'Lora',Georgia,serif;color:var(--navy);font-size:1.45rem;font-weight:600;}
+    .category-header .desc{color:var(--text-muted);font-size:0.92rem;margin-left:auto;font-style:italic;}
+    .doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;}
+    .doc-card{background:var(--paper);border:1px solid var(--border);border-radius:9px;padding:15px 18px;transition:border-color 0.18s,box-shadow 0.18s,transform 0.12s;box-shadow:0 1px 8px rgba(28,53,87,0.08);}
+    .doc-card:hover{border-color:var(--gold);box-shadow:0 4px 16px var(--shadow);transform:translateY(-1px);}
+    .doc-card a{color:var(--navy);font-weight:600;font-size:0.97rem;display:block;line-height:1.45;}
+    .doc-card:hover a{color:var(--gold);text-decoration:none;}
+    .doc-card .meta{margin-top:6px;color:var(--text-muted);font-size:0.88rem;}
+    footer.site-footer{background:var(--navy);color:rgba(255,255,255,0.72);text-align:center;padding:34px 30px;font-size:0.9rem;}
+    footer.site-footer a{color:#fff;text-decoration:underline;}
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="../index.html" class="lang-opt">Norsk</a>
+        <span class="bar-sep">|</span>
+        <span class="lang-cur">English</span>
+        <span class="bar-sep">·</span>
+        <a href="../about.html">About</a>
+    </div>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <p class="eyebrow">Digital Family Archive</p>
+            <h1>Historical Archive – The Sundlo and Ringset Families</h1>
+            <p class="subtitle">
+                A digital archive of family history, biography, and historical documents
+                relating to the Sundlo and Ringset families of Norway.
+            </p>
+            <p class="hero-meta">
+                Recorded and compiled by Harald Sundlo, Asker, 1993/94
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro-block">
+            <div class="intro-card">
+                <h2>About the Archive</h2>
+                <p>
+                    Upon retiring in 1992, Harald Sundlo undertook to transcribe a selection of his father's notes
+                    concerning the family history, and gathered additionally some new information about the Sundlo
+                    and Speilberg families. This material was copied and distributed amongst close family members,
+                    so that all might know a little more about their origins.
+                </p>
+                <p>
+                    Harald's father, Konrad Bertram Holm Sundlo, had also kept extensive notes from his time
+                    amongst Norwegian war volunteers in Russia. A selection of these notes has been transcribed
+                    both as family history and as historical documents of their period.
+                </p>
+                <div class="notice">
+                    <strong>Historical note:</strong> Several texts in this archive concern warfare, military
+                    service, and politically sensitive subjects. The documents are published as historical
+                    source material and should be read in their historical context.
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">📜</span>
+                    <h2>Purpose and Background</h2>
+                    <span class="desc">Introduction and background to the archive</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/en/Formål.html">Purpose – Introduction by Harald Sundlo</a>
+                        <p class="meta">Introduction to the archive and the work behind it</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">📖</span>
+                    <h2>Konrad Sundlo's Memoirs</h2>
+                    <span class="desc">Recollections from the Caucasus and Russia, transcribed by Harald Sundlo</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/en/Russland & Byen med det gylne skinn 1.html">Russia &amp; The City with the Golden Sheen – Part 1</a>
+                        <p class="meta">Memoirs from Russia and the Caucasus</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/Byen med det gylne skinn 2.html">Russia &amp; The City with the Golden Sheen – Part 2</a>
+                        <p class="meta">Continuation of the memoirs</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/Byen med det gylne skinn 3 og Nansen.html">Russia &amp; The City with the Golden Sheen – Part 3 &amp; Nansen</a>
+                        <p class="meta">Conclusion and material concerning Nansen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/Byen med kanonen.html">Narvik 1940 – The Town with the Gun</a>
+                        <p class="meta">Historical account from Narvik, 1940</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">⚔️</span>
+                    <h2>The Police Company</h2>
+                    <span class="desc">Accounts from the 1st Police Company – The Norwegian Legion</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/en/1.Politi.html">1st Police Company – Ensign Bødtker's Account</a>
+                        <p class="meta">Account from the 1st Police Company</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/2 Politi.html">2nd Police Company – Accounts, Part 2</a>
+                        <p class="meta">Further accounts from the same milieu</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/3politi.html">3rd Police Company – Accounts, Part 3</a>
+                        <p class="meta">Third part of the material</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">🎖️</span>
+                    <h2>Regiment Nordland</h2>
+                    <span class="desc">Accounts from Regiment Nordland</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/en/5konordl.html">With 5th Company, Regiment Nordland – Dagfinn Henriksen</a>
+                        <p class="meta">Account from 5th Company</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/7konordl.html">With 7th Company, Regiment Nordland – Erling Larsen</a>
+                        <p class="meta">Account from 7th Company</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">🗂️</span>
+                    <h2>Legions and Battalions</h2>
+                    <span class="desc">Accounts from the Norwegian Legion and related units</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/en/Legiogri.html">The Norwegian Legion – Organisation and Origins</a>
+                        <p class="meta">Overview of the organisation and background</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/Legpans.html">The Norwegian Legion – Tank Destroyers</a>
+                        <p class="meta">Material on the tank-destroyer unit</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/Reggerm.html">With Germania – Arnt Torp's Account</a>
+                        <p class="meta">Account relating to Germania</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/Skibat.html">The Ski Battalion</a>
+                        <p class="meta">Historical material on the Ski Battalion</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">🌳</span>
+                    <h2>The Sundlo Family</h2>
+                    <span class="desc">Genealogy and biographical notes on the Sundlo family</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist3.html">Jørgen Pederssøn Schjelderup</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist5.html">Hans Nielsen Speilberg</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist 9 Conrad Lassen.html">Conrad Lassen</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist10 Konrad Bertram Holm Sundlo.html">Konrad Bertram Holm Sundlo</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist 13 Johan Marius Sundlo.html">Johan Marius Sundlo</a>
+                        <p class="meta">The seafarer in Shanghai</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist15.html">Halfdan Sundlo</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist16.html">John Kjelbergsen Sundlo</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist17.html">Grim Saxvik</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist22.html">Mortine Kjelbergsdatter Sundlo</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist23 Kjelberg Johnsen Sundlo.html">Kjelberg Johnsen Sundlo</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist37 Albertine Sundlo.html">Albertine Sundlo</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist38 Othelie Sundlo.html">Othelie Sundlo</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist119.html">Anders Larsen Holm</a>
+                        <p class="meta">Genealogical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist163.html">The Tinsmith at Jøråshaugen</a>
+                        <p class="meta">Christian Andersen Holm</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist235.html">Correspondence with Johannes Gundersen</a>
+                        <p class="meta">Levanger</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist274.html">Harald Fairhair</a>
+                        <p class="meta">Historical notes</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist282.html">Halfdan the Black</a>
+                        <p class="meta">Historical notes</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/Hist158 Karl Dons.html">The Dons Family</a>
+                        <p class="meta">Notes by Karl Dons</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist139  Peder Paulsen (Leth).html">Peder Paulsen (Leth)</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist140.html">Paul Jensen Tved</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist142 Paul Pedersen Dons.html">Paul Pedersen Dons</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist151 Lorentz Dons.html">Lorentz Dons</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist154 Mathias Conrad Peterson.html">Mathias Conrad Peterson</a>
+                        <p class="meta">Journalist and bank director</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist156 Johan Peter Muller.html">Johan Peter Muller</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist160.html">Georg Burchard Baade</a>
+                        <p class="meta">Incumbent at Stranda</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist208.html">Michel Baade</a>
+                        <p class="meta">Hanseatic merchant in Bergen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist209.html">Hans Baade</a>
+                        <p class="meta">Hanseatic merchant in Bergen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist210.html">Daniel Baade</a>
+                        <p class="meta">The Greenland mission</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist212.html">Peter Baade – Bergen</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist213.html">Steffen Baade – Bergen</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist254.html">Peter Daniel Baade</a>
+                        <p class="meta">Clergyman and jurist</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist255.html">Michael Baade</a>
+                        <p class="meta">Missionary in Porsanger</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist310.html">Fredrik Anton Olai Baade</a>
+                        <p class="meta">Lost at sea, 1896</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist431 Marie Saxvik.html">Marie Saxvik</a>
+                        <p class="meta">The Norwegian in New York</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">🏔️</span>
+                    <h2>The Ringset Family</h2>
+                    <span class="desc">Genealogy and biographical notes on the Ringset family</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/en/Marta Ringset-Minneoppgave.html">Marta Ringset – A Memoir</a>
+                        <p class="meta">Written memoir, 1990s</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist205.html">Frøystein Ringset</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/en/hist430.html">Nils Edvard Olsen Ringset</a>
+                        <p class="meta">Biographical note</p>
+                    </article>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        Historical Archive – The Sundlo and Ringset Families &nbsp;|&nbsp;
+        <a href="../about.html">About</a>
+    </footer>
+</body>
+</html>"""
+
+en_index_path = os.path.join(ROOT_DIR, 'en', 'index.html')
+with open(en_index_path, 'w', encoding='utf-8') as f:
+    f.write(EN_INDEX)
+print('Written en/index.html')
+
+print('\nDone. Run from the Slekt/ directory.')

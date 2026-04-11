@@ -4,5 +4,3 @@ Allow: /
 # Sitemap location
 Sitemap: https://eriksundlo.github.io/Slekt/sitemap.xml
 
-# Crawl-delay suggestion for polite crawlers
-Crawl-delay: 2

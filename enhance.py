@@ -21,17 +21,17 @@ ROOT_DIR = r"C:\Users\eriks\OneDrive\Konverter"
 # ----------------------------------------------------------------
 ALL_DOCS = {
     # Formål
-    "Formål.html": "Formål – innledning av Harald Sundlo",
+    "formaal.html": "Formål – innledning av Harald Sundlo",
 
     # Konrad Sundlo forteller
-    "Russland & Byen med det gylne skinn 1.html": "Russland & Byen med det gylne skinn – del 1",
-    "Byen med det gylne skinn 2.html":             "Russland & Byen med det gylne skinn – del 2",
-    "Byen med det gylne skinn 3 og Nansen.html":   "Russland & Byen med det gylne skinn – del 3 og Nansen",
-    "Byen med kanonen.html":                        "Narvik 1940 – Byen med kanonen",
+    "russland-byen-gylne-skinn-1.html": "Russland & Byen med det gylne skinn – del 1",
+    "byen-gylne-skinn-2.html":             "Russland & Byen med det gylne skinn – del 2",
+    "byen-gylne-skinn-3-nansen.html":   "Russland & Byen med det gylne skinn – del 3 og Nansen",
+    "byen-med-kanonen.html":                        "Narvik 1940 – Byen med kanonen",
 
     # Politikompaniet
     "1.Politi.html":  "1. Politikompani – Fenrik Bødtker forteller",
-    "2 Politi.html":  "1. Politikompani – Fortellinger del 2",
+    "2-politi.html":  "1. Politikompani – Fortellinger del 2",
     "3politi.html":   "1. Politikompani – Fortellinger del 3",
 
     # Regiment Nordland
@@ -47,24 +47,24 @@ ALL_DOCS = {
     # Sundloslekten – person names
     "hist3.html":                              "Jørgen Pederssøn Schjelderup",
     "hist5.html":                              "Hans Nielsen Speilberg",
-    "hist 9 Conrad Lassen.html":               "Conrad Lassen",
-    "hist10 Konrad Bertram Holm Sundlo.html":  "Konrad Bertram Holm Sundlo",
-    "hist 13 Johan Marius Sundlo.html":        "Johan Marius Sundlo",
+    "hist9-conrad-lassen.html":               "Conrad Lassen",
+    "hist10-konrad-bertram-holm-sundlo.html":  "Konrad Bertram Holm Sundlo",
+    "hist13-johan-marius-sundlo.html":        "Johan Marius Sundlo",
     "hist15.html":                             "Halfdan Sundlo",
     "hist16.html":                             "John Kjelbergsen Sundlo",
     "hist17.html":                             "Grim Saxvik",
     "hist22.html":                             "Mortine Kjelbergsdatter Sundlo",
-    "hist23 Kjelberg Johnsen Sundlo.html":     "Kjelberg Johnsen Sundlo",
-    "hist37 Albertine Sundlo.html":            "Albertine Sundlo",
-    "hist38 Othelie Sundlo.html":              "Othelie Sundlo",
+    "hist23-kjelberg-johnsen-sundlo.html":     "Kjelberg Johnsen Sundlo",
+    "hist37-albertine-sundlo.html":            "Albertine Sundlo",
+    "hist38-othelie-sundlo.html":              "Othelie Sundlo",
     "hist119.html":                            "Anders Larsen Holm",
-    "hist139  Peder Paulsen (Leth).html":      "Peder Paulsen (Leth)",
+    "hist139-peder-paulsen-leth.html":      "Peder Paulsen (Leth)",
     "hist140.html":                            "Paul Jensen Tved",
-    "hist142 Paul Pedersen Dons.html":         "Paul Pedersen Dons",
-    "hist151 Lorentz Dons.html":               "Lorentz Dons",
-    "hist154 Mathias Conrad Peterson.html":    "Mathias Conrad Peterson",
-    "hist156 Johan Peter Muller.html":         "Johan Peter Muller",
-    "Hist158 Karl Dons.html":                  "Karl Dons",
+    "hist142-paul-pedersen-dons.html":         "Paul Pedersen Dons",
+    "hist151-lorentz-dons.html":               "Lorentz Dons",
+    "hist154-mathias-conrad-peterson.html":    "Mathias Conrad Peterson",
+    "hist156-johan-peter-muller.html":         "Johan Peter Muller",
+    "hist158-karl-dons.html":                  "Karl Dons",
     "hist160.html":                            "Georg Burchard Baade",
     "hist163.html":                            "Gjørtleren på Jøråshaugen – Christian Andersen Holm",
     "hist205.html":                            "Frøystein Ringset",
@@ -80,10 +80,10 @@ ALL_DOCS = {
     "hist282.html":                            "Halvdan Svarte",
     "hist310.html":                            "Fredrik Anton Olai Baade",
     "hist430.html":                            "Nils Edvard Olsen Ringset",
-    "hist431 Marie Saxvik.html":               "Marie Saxvik",
+    "hist431-marie-saxvik.html":               "Marie Saxvik",
 
     # Ringsetslekten
-    "Marta Ringset-Minneoppgave.html": "Marta Ringset – Minneoppgave",
+    "marta-ringset-minneoppgave.html": "Marta Ringset – Minneoppgave",
 }
 
 # ----------------------------------------------------------------
@@ -94,24 +94,24 @@ CATEGORIES = [
         "title": "Formål og bakgrunn",
         "description": "Innledning og bakgrunnen for dette arkivet",
         "icon": "📜",
-        "docs": ["Formål.html"],
+        "docs": ["formaal.html"],
     },
     {
         "title": "Konrad Sundlo forteller",
         "description": "Erindringer fra Kaukasus og Russland, nedskrevet av Harald Sundlo",
         "icon": "📖",
         "docs": [
-            "Russland & Byen med det gylne skinn 1.html",
-            "Byen med det gylne skinn 2.html",
-            "Byen med det gylne skinn 3 og Nansen.html",
-            "Byen med kanonen.html",
+            "russland-byen-gylne-skinn-1.html",
+            "byen-gylne-skinn-2.html",
+            "byen-gylne-skinn-3-nansen.html",
+            "byen-med-kanonen.html",
         ],
     },
     {
         "title": "Politikompaniet",
         "description": "Historier fra 1. Politikompani – Den Norske Legion",
         "icon": "⚔️",
-        "docs": ["1.Politi.html", "2 Politi.html", "3politi.html"],
+        "docs": ["1.Politi.html", "2-politi.html", "3politi.html"],
     },
     {
         "title": "Regiment Nordland",
@@ -131,24 +131,24 @@ CATEGORIES = [
         "icon": "🌳",
         "docs": [
             "hist3.html", "hist5.html",
-            "hist 9 Conrad Lassen.html",
-            "hist10 Konrad Bertram Holm Sundlo.html",
-            "hist 13 Johan Marius Sundlo.html",
+            "hist9-conrad-lassen.html",
+            "hist10-konrad-bertram-holm-sundlo.html",
+            "hist13-johan-marius-sundlo.html",
             "hist15.html", "hist16.html", "hist17.html", "hist22.html",
-            "hist23 Kjelberg Johnsen Sundlo.html",
-            "hist37 Albertine Sundlo.html", "hist38 Othelie Sundlo.html",
+            "hist23-kjelberg-johnsen-sundlo.html",
+            "hist37-albertine-sundlo.html", "hist38-othelie-sundlo.html",
             "hist119.html",
-            "hist139  Peder Paulsen (Leth).html",
+            "hist139-peder-paulsen-leth.html",
             "hist140.html",
-            "hist142 Paul Pedersen Dons.html",
-            "hist151 Lorentz Dons.html",
-            "hist154 Mathias Conrad Peterson.html",
-            "hist156 Johan Peter Muller.html",
-            "Hist158 Karl Dons.html",
+            "hist142-paul-pedersen-dons.html",
+            "hist151-lorentz-dons.html",
+            "hist154-mathias-conrad-peterson.html",
+            "hist156-johan-peter-muller.html",
+            "hist158-karl-dons.html",
             "hist163.html",
             "hist235.html",
             "hist274.html", "hist282.html",
-            "hist431 Marie Saxvik.html",
+            "hist431-marie-saxvik.html",
         ],
     },
     {
@@ -161,7 +161,7 @@ CATEGORIES = [
             "hist212.html", "hist213.html",
             "hist254.html", "hist255.html",
             "hist310.html",
-            "Marta Ringset-Minneoppgave.html",
+            "marta-ringset-minneoppgave.html",
             "hist205.html",
             "hist430.html",
         ],
@@ -626,8 +626,8 @@ INDEX_CSS = """
 
 
 def extract_intro_text():
-    """Extract intro paragraphs from Formål.html."""
-    formal_path = os.path.join(HTML_DIR, "Formål.html")
+    """Extract intro paragraphs from formaal.html."""
+    formal_path = os.path.join(HTML_DIR, "formaal.html")
     if not os.path.exists(formal_path):
         return ""
     with open(formal_path, encoding='utf-8') as f:

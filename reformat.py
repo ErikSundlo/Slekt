@@ -18,7 +18,7 @@ CATEGORIES = [
         "description": "Innledning og bakgrunnen for dette arkivet",
         "icon": "📜",
         "docs": [
-            ("Formål.html", "Formål – innledning av Harald Sundlo"),
+            ("formaal.html", "Formål – innledning av Harald Sundlo"),
         ]
     },
     {
@@ -26,10 +26,10 @@ CATEGORIES = [
         "description": "Erindringer fra Kaukasus og Russland, nedskrevet av Harald Sundlo",
         "icon": "📖",
         "docs": [
-            ("Russland & Byen med det gylne skinn 1.html", "Russland & Byen med det gylne skinn – del 1"),
-            ("Byen med det gylne skinn 2.html", "Byen med det gylne skinn – del 2"),
-            ("Byen med det gylne skinn 3 og Nansen.html", "Byen med det gylne skinn – del 3 og Nansen"),
-            ("Byen med kanonen.html", "Byen med kanonen"),
+            ("russland-byen-gylne-skinn-1.html", "Russland & Byen med det gylne skinn – del 1"),
+            ("byen-gylne-skinn-2.html", "Byen med det gylne skinn – del 2"),
+            ("byen-gylne-skinn-3-nansen.html", "Byen med det gylne skinn – del 3 og Nansen"),
+            ("byen-med-kanonen.html", "Byen med kanonen"),
         ]
     },
     {
@@ -38,7 +38,7 @@ CATEGORIES = [
         "icon": "⚔️",
         "docs": [
             ("1.Politi.html", "Politikompani – del 1"),
-            ("2 Politi.html", "Politikompani – del 2"),
+            ("2-politi.html", "Politikompani – del 2"),
             ("3politi.html", "Politikompani – del 3"),
         ]
     },
@@ -69,24 +69,24 @@ CATEGORIES = [
         "docs": [
             ("hist3.html", "Slektshistorie 3"),
             ("hist5.html", "Slektshistorie 5"),
-            ("hist 9 Conrad Lassen.html", "Conrad Lassen"),
-            ("hist10 Konrad Bertram Holm Sundlo.html", "Konrad Bertram Holm Sundlo"),
-            ("hist 13 Johan Marius Sundlo.html", "Johan Marius Sundlo"),
+            ("hist9-conrad-lassen.html", "Conrad Lassen"),
+            ("hist10-konrad-bertram-holm-sundlo.html", "Konrad Bertram Holm Sundlo"),
+            ("hist13-johan-marius-sundlo.html", "Johan Marius Sundlo"),
             ("hist15.html", "Slektshistorie 15"),
             ("hist16.html", "Slektshistorie 16"),
             ("hist17.html", "Slektshistorie 17"),
             ("hist22.html", "Slektshistorie 22"),
-            ("hist23 Kjelberg Johnsen Sundlo.html", "Kjelberg Johnsen Sundlo"),
-            ("hist37 Albertine Sundlo.html", "Albertine Sundlo"),
-            ("hist38 Othelie Sundlo.html", "Othelie Sundlo"),
+            ("hist23-kjelberg-johnsen-sundlo.html", "Kjelberg Johnsen Sundlo"),
+            ("hist37-albertine-sundlo.html", "Albertine Sundlo"),
+            ("hist38-othelie-sundlo.html", "Othelie Sundlo"),
             ("hist119.html", "Slektshistorie 119"),
-            ("hist139  Peder Paulsen (Leth).html", "Peder Paulsen (Leth)"),
+            ("hist139-peder-paulsen-leth.html", "Peder Paulsen (Leth)"),
             ("hist140.html", "Slektshistorie 140"),
-            ("hist142 Paul Pedersen Dons.html", "Paul Pedersen Dons"),
-            ("hist151 Lorentz Dons.html", "Lorentz Dons"),
-            ("hist154 Mathias Conrad Peterson.html", "Mathias Conrad Peterson"),
-            ("hist156 Johan Peter Muller.html", "Johan Peter Muller"),
-            ("Hist158 Karl Dons.html", "Karl Dons"),
+            ("hist142-paul-pedersen-dons.html", "Paul Pedersen Dons"),
+            ("hist151-lorentz-dons.html", "Lorentz Dons"),
+            ("hist154-mathias-conrad-peterson.html", "Mathias Conrad Peterson"),
+            ("hist156-johan-peter-muller.html", "Johan Peter Muller"),
+            ("hist158-karl-dons.html", "Karl Dons"),
             ("hist160.html", "Slektshistorie 160"),
             ("hist163.html", "Slektshistorie 163"),
             ("hist205.html", "Slektshistorie 205"),
@@ -102,7 +102,7 @@ CATEGORIES = [
             ("hist282.html", "Slektshistorie 282"),
             ("hist310.html", "Slektshistorie 310"),
             ("hist430.html", "Slektshistorie 430"),
-            ("hist431 Marie Saxvik.html", "Marie Saxvik"),
+            ("hist431-marie-saxvik.html", "Marie Saxvik"),
         ]
     },
     {
@@ -110,7 +110,7 @@ CATEGORIES = [
         "description": "Slektshistorie – familien Ringset",
         "icon": "🌿",
         "docs": [
-            ("Marta Ringset-Minneoppgave.html", "Marta Ringset – Minneoppgave"),
+            ("marta-ringset-minneoppgave.html", "Marta Ringset – Minneoppgave"),
         ]
     },
 ]
@@ -558,8 +558,8 @@ def make_index_page(intro_text=""):
 
 
 def extract_intro_text():
-    """Extract a short intro paragraph from Formål.html."""
-    formal_path = os.path.join(HTML_DIR, "Formål.html")
+    """Extract a short intro paragraph from formaal.html."""
+    formal_path = os.path.join(HTML_DIR, "formaal.html")
     if not os.path.exists(formal_path):
         return ""
 

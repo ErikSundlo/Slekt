@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historisches Archiv – Die Familien Sundlo und Ringset</title>
+    <meta name="description" content="Ein digitales Archiv zur Familiengeschichte, Biographien und historischen Dokumenten der norwegischen Familien Sundlo und Ringset.">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#1c3557;--navy-light:#2a4a7a;--gold:#9a6e1a;--gold-light:#f5edda;--cream:#faf7f2;--paper:#ffffff;--text:#2d2929;--text-muted:#6d655e;--border:#ddd5c8;--shadow:rgba(28,53,87,0.12);--max-width:1120px;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.8;font-size:17px;min-height:100vh;}
+    a{color:var(--navy);text-decoration:none;} a:hover{color:var(--gold);text-decoration:underline;}
+    .top-bar{background:var(--navy);padding:7px 30px;display:flex;align-items:center;justify-content:flex-end;gap:16px;font-size:0.82rem;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .top-bar a{color:rgba(255,255,255,0.75);letter-spacing:0.3px;} .top-bar a:hover{color:#fff;text-decoration:none;}
+    .top-bar .lang-cur{color:rgba(255,255,255,0.38);cursor:default;}
+    .top-bar .lang-opt{border:1px solid rgba(255,255,255,0.32);padding:2px 8px;border-radius:4px;transition:background 0.15s;}
+    .top-bar .lang-opt:hover{background:rgba(255,255,255,0.12);}
+    .top-bar .bar-sep{color:rgba(255,255,255,0.22);}
+    .hero{background:linear-gradient(135deg,var(--navy) 0%,#263f6b 60%,#2a4a7a 100%);color:white;padding:80px 30px 68px;text-align:center;border-bottom:5px solid var(--gold);}
+    .hero-inner{max-width:850px;margin:0 auto;}
+    .eyebrow{display:inline-block;margin-bottom:14px;padding:5px 10px;border:1px solid rgba(255,255,255,0.28);border-radius:999px;font-size:0.86rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.88);}
+    .hero h1{font-family:'Lora',Georgia,serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:14px;line-height:1.2;}
+    .hero .subtitle{font-size:1.1rem;opacity:0.9;max-width:680px;margin:0 auto 18px;line-height:1.65;font-weight:300;}
+    .hero-meta{font-size:0.92rem;color:rgba(255,255,255,0.75);}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 30px;}
+    .intro-block{margin:42px auto 30px;}
+    .intro-card{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:30px 32px;box-shadow:0 2px 12px var(--shadow);}
+    .intro-card h2{font-family:'Lora',Georgia,serif;color:var(--navy);font-size:1.2rem;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+    .intro-card p{margin-bottom:0.95em;color:#4a4540;line-height:1.78;font-size:1rem;}
+    .intro-card p:last-child{margin-bottom:0;}
+    .notice{margin-top:18px;padding:14px 16px;background:var(--gold-light);border:1px solid #e5d4a8;border-radius:8px;color:#51452d;font-size:0.95rem;}
+    .categories-section{margin:30px auto 70px;}
+    .category-block{margin-bottom:50px;scroll-margin-top:28px;}
+    .category-header{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--gold);flex-wrap:wrap;}
+    .category-header .icon{font-size:1.3rem;}
+    .category-header h2{font-family:'Lora',Georgia,serif;color:var(--navy);font-size:1.45rem;font-weight:600;}
+    .category-header .desc{color:var(--text-muted);font-size:0.92rem;margin-left:auto;font-style:italic;}
+    .doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;}
+    .doc-card{background:var(--paper);border:1px solid var(--border);border-radius:9px;padding:15px 18px;transition:border-color 0.18s,box-shadow 0.18s,transform 0.12s;box-shadow:0 1px 8px rgba(28,53,87,0.08);}
+    .doc-card:hover{border-color:var(--gold);box-shadow:0 4px 16px var(--shadow);transform:translateY(-1px);}
+    .doc-card a{color:var(--navy);font-weight:600;font-size:0.97rem;display:block;line-height:1.45;}
+    .doc-card:hover a{color:var(--gold);text-decoration:none;}
+    .doc-card .meta{margin-top:6px;color:var(--text-muted);font-size:0.88rem;}
+    footer.site-footer{background:var(--navy);color:rgba(255,255,255,0.72);text-align:center;padding:34px 30px;font-size:0.9rem;}
+    footer.site-footer a{color:#fff;text-decoration:underline;}
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="../index.html" class="lang-opt">Norsk</a>
+        <span class="bar-sep">|</span>
+        <a href="../en/index.html" class="lang-opt">English</a>
+        <span class="bar-sep">|</span>
+        <span class="lang-cur">Deutsch</span>
+        <span class="bar-sep">·</span>
+        <a href="../about.html">Über das Archiv</a>
+    </div>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <p class="eyebrow">Digitales Familienarchiv</p>
+            <h1>Historisches Archiv – Die Familien Sundlo und Ringset</h1>
+            <p class="subtitle">
+                Ein digitales Archiv mit Familiengeschichte, Biographien und historischen Dokumenten
+                der norwegischen Familien Sundlo und Ringset.
+            </p>
+            <p class="hero-meta">
+                Aufgezeichnet und zusammengestellt von Harald Sundlo, Asker, 1993/94
+                <br>Hinweis: Die deutsche Übersetzung wurde von Claude Code erstellt. Einige der längeren Texte wurden gekürzt und Details ausgelassen. Bitte beachten Sie die norwegischen Originaltexte für den vollständigen und authentischen Wortlaut.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro-block">
+            <div class="intro-card">
+                <h2>Über das Archiv</h2>
+                <p>
+                    Nach seiner Pensionierung im Jahr 1992 machte sich Harald Sundlo daran, einen Teil der
+                    Aufzeichnungen seines Vaters zur Familiengeschichte zu redigieren und zusammenzustellen.
+                    Darüber hinaus sammelte er neue Informationen über die Familien Sundlo und Speilberg.
+                    Das entstandene Material wurde unter den nächsten Familienangehörigen verteilt, damit
+                    alle etwas mehr über ihre Herkunft erfahren könnten.
+                </p>
+                <p>
+                    Haralds Vater, Konrad Bertram Holm Sundlo, hatte auch umfangreiche Aufzeichnungen
+                    aus seiner Zeit unter norwegischen Kriegsfreiwilligen in Russland hinterlassen.
+                    Eine Auswahl dieser Aufzeichnungen wurde sowohl als Familiengeschichte als auch als
+                    historische Dokumente ihrer Epoche aufbereitet.
+                </p>
+                <div class="notice">
+                    <strong>Historischer Hinweis:</strong> Mehrere Texte in diesem Archiv behandeln Krieg,
+                    Militärdienst und politisch sensible Themen. Die Dokumente werden als historisches
+                    Quellenmaterial veröffentlicht und müssen in ihrem historischen Kontext gelesen werden.
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">📜</span>
+                    <h2>Zweck und Hintergrund</h2>
+                    <span class="desc">Einleitung und Hintergrund des Archivs</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/de/formaal.html">Zweck – Einleitung von Harald Sundlo</a>
+                        <p class="meta">Einleitung zum Archiv und zur Entstehungsgeschichte</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">📖</span>
+                    <h2>Konrad Sundlos Erinnerungen</h2>
+                    <span class="desc">Erinnerungen aus dem Kaukasus und Russland, aufgezeichnet von Harald Sundlo</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/de/russland-byen-gylne-skinn-1.html">Russland &amp; Die Stadt mit dem goldenen Schimmer – Teil 1</a>
+                        <p class="meta">Erinnerungen aus Russland und dem Kaukasus</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/byen-gylne-skinn-2.html">Russland &amp; Die Stadt mit dem goldenen Schimmer – Teil 2</a>
+                        <p class="meta">Fortsetzung der Erinnerungen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/byen-gylne-skinn-3-nansen.html">Russland &amp; Die Stadt mit dem goldenen Schimmer – Teil 3 &amp; Nansen</a>
+                        <p class="meta">Abschluss und Material über Nansen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/byen-med-kanonen.html">Narvik 1940 – Die Stadt mit der Kanone</a>
+                        <p class="meta">Historischer Bericht aus Narvik, 1940</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">⚔️</span>
+                    <h2>Die Polizeikompanie</h2>
+                    <span class="desc">Berichte aus der 1. Polizeikompanie – Die Norwegische Legion</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/de/1.Politi.html">1. Polizeikompanie – Bericht von Fähnrich Bødtker</a>
+                        <p class="meta">Bericht aus der 1. Polizeikompanie</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/2-politi.html">2. Polizeikompanie – Berichte, Teil 2</a>
+                        <p class="meta">Weitere Berichte aus demselben Umfeld</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/3politi.html">3. Polizeikompanie – Berichte, Teil 3</a>
+                        <p class="meta">Dritter Teil des Materials</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">🎖️</span>
+                    <h2>Regiment Nordland</h2>
+                    <span class="desc">Berichte aus dem Regiment Nordland</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/de/5konordl.html">Bei der 5. Kompanie, Regiment Nordland – Dagfinn Henriksen</a>
+                        <p class="meta">Bericht aus der 5. Kompanie</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/7konordl.html">Bei der 7. Kompanie, Regiment Nordland – Erling Larsen</a>
+                        <p class="meta">Bericht aus der 7. Kompanie</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">🗂️</span>
+                    <h2>Legionen und Bataillone</h2>
+                    <span class="desc">Berichte aus der Norwegischen Legion und verwandten Einheiten</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/de/Legiogri.html">Die Norwegische Legion – Organisation und Ursprung</a>
+                        <p class="meta">Überblick über Organisation und Hintergrund</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/Legpans.html">Die Norwegische Legion – Panzerjäger</a>
+                        <p class="meta">Material zur Panzerjägereinheit</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/Reggerm.html">Bei Germania – Bericht von Arnt Torp</a>
+                        <p class="meta">Bericht bezüglich Germania</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/Skibat.html">Das Ski-Bataillon</a>
+                        <p class="meta">Historisches Material über das Ski-Bataillon</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">🌳</span>
+                    <h2>Die Familie Sundlo / Speilberg</h2>
+                    <span class="desc">Genealogie und biographische Notizen zur Familie Sundlo und Speilberg</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist3.html">Jørgen Pederssøn Schjelderup</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist5.html">Hans Nielsen Speilberg</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist9-conrad-lassen.html">Conrad Lassen</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist10-konrad-bertram-holm-sundlo.html">Konrad Bertram Holm Sundlo</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist13-johan-marius-sundlo.html">Johan Marius Sundlo</a>
+                        <p class="meta">Der Seemann in Shanghai</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist15.html">Halfdan Sundlo</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist16.html">John Kjelbergsen Sundlo</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist17.html">Grim Saxvik</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist22.html">Mortine Kjelbergsdatter Sundlo</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist23-kjelberg-johnsen-sundlo.html">Kjelberg Johnsen Sundlo</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist37-albertine-sundlo.html">Albertine Sundlo</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist38-othelie-sundlo.html">Othelie Sundlo</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist119.html">Anders Larsen Holm</a>
+                        <p class="meta">Genealogische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist163.html">Der Klempner auf dem Jøråshaugen</a>
+                        <p class="meta">Christian Andersen Holm</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist235.html">Briefwechsel mit Johannes Gundersen</a>
+                        <p class="meta">Levanger</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist274.html">Harald Schönhaar</a>
+                        <p class="meta">Historische Notizen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist282.html">Halvdan der Schwarze</a>
+                        <p class="meta">Historische Notizen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist158-karl-dons.html">Die Familie Dons</a>
+                        <p class="meta">Aufzeichnungen von Karl Dons</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist139-peder-paulsen-leth.html">Peder Paulsen (Leth)</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist140.html">Paul Jensen Tved</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist142-paul-pedersen-dons.html">Paul Pedersen Dons</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist151-lorentz-dons.html">Lorentz Dons</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist154-mathias-conrad-peterson.html">Mathias Conrad Peterson</a>
+                        <p class="meta">Journalist und Bankdirektor</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist156-johan-peter-muller.html">Johan Peter Muller</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist431-marie-saxvik.html">Marie Saxvik</a>
+                        <p class="meta">Die Norwegerin in New York</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <span class="icon">🌿</span>
+                    <h2>Die Familie Baade / Ringset</h2>
+                    <span class="desc">Genealogie und biographische Notizen zur Familie Baade und Ringset</span>
+                </div>
+                <div class="doc-grid">
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist160.html">Georg Burchard Baade</a>
+                        <p class="meta">Pfarrer in Stranda</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist208.html">Michel Baade</a>
+                        <p class="meta">Hanseatischer Kaufmann in Bergen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist209.html">Hans Baade</a>
+                        <p class="meta">Hanseatischer Kaufmann in Bergen</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist210.html">Daniel Baade</a>
+                        <p class="meta">Die Grönlandmission</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist212.html">Peter Baade – Bergen</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist213.html">Steffen Baade – Bergen</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist254.html">Peter Daniel Baade</a>
+                        <p class="meta">Geistlicher und Jurist</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist255.html">Michael Baade</a>
+                        <p class="meta">Missionar in Porsanger</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist310.html">Fredrik Anton Olai Baade</a>
+                        <p class="meta">Auf See verschollen, 1896</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/marta-ringset-minneoppgave.html">Marta Ringset – Eine Erinnerung</a>
+                        <p class="meta">Geschriebene Erinnerung, 1990er Jahre</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist205.html">Frøystein Ringset</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                    <article class="doc-card">
+                        <a href="../HTML/de/hist430.html">Nils Edvard Olsen Ringset</a>
+                        <p class="meta">Biographische Notiz</p>
+                    </article>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        Historisches Archiv – Die Familien Sundlo und Ringset &nbsp;|&nbsp;
+        <a href="../about.html">Über das Archiv</a>
+    </footer>
+</body>
+</html>

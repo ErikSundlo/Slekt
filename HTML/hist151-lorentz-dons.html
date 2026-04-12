@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist151-lorentz-dons.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist151-lorentz-dons.html" />
@@ -172,7 +269,7 @@
     </header>
 
     <main class="content-wrapper">
-<p>Fra Konrad Bertram Holm Sundlo's notater:</p>
+<p>Fra <a class="xref" href="hist10-konrad-bertram-holm-sundlo.html" title="Konrad Bertram Holm Sundlo">Konrad Bertram Holm Sundlo</a>'s notater:</p>
 <p>Lorentz Dons</p>
 <p>Major. Født i Trondhjem 16 mai 1728. Døde plutselig den 6 mars 1784 på gården Huseby i Oxendalen på Nordmøre.</p> <p>Han døptes i Trondhjem domkirke 21 mai 1728 og hans mor holdt sin første kirkegang etter hans fødsel den 19 juni  s.å.</p>
 <p>Ved landvernets organisasjon i 1747 ble han ansatt somsecondløytnant ved kapt. Rosenkrantz's kompani under Nordmøre regiment.</p> <p>I 1756 stod han som premierløytnat ved kapt. Lossius's (det Romsdalske) kompani og fikk 9 april 1760 kapteins karakter, samtidig som han ble forflyttet til det Ginnæske kompani (sjef: oberstløytnant de Batta)</p>
@@ -184,7 +281,8 @@
 <p>Han skildres som 'en anerkjent, sjelden dyktig offiser'.</p>
 <p>Den 23 mars 1762 ektet han i Bakke kirke (som den gang lå utenfor Trondhjem) Cornelia Susanne Klingenberg som var født på Baklandet (Trondhjem) 28 sept 1729. Hun var datter av oberauditør og regimentskvartermester ved dragonene Johannes Klingenberg (født 6 desember 1686 død 2 mars 1763 bisatt i Lade kirke ved Trondhjem 24 mars 1763 - eier av Elgeseter gård ved Trondhjem) og Sara Arentz (født i Stadsbygden 1701 døpt 2 august samme år, begravet i Lade kirke 13 juni 1766).</p> <p>Bryllupet stod på svigerforeldrenes gård Sinsaker ved Trondhjem.</p>
 <p>Året etter at hun var blitt enke fikk Cornelia 30 mai 1785 plass i det  'kloster' som tilhørte Thomas Angels Stiftelser i Trondhjem og oppholdt seg der til sin død 29 jan 1823. Hun var i de siste år blind.</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist142-paul-pedersen-dons.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Paul Pedersen Dons</span></a><a href="hist154-mathias-conrad-peterson.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Mathias Conrad Peterson</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

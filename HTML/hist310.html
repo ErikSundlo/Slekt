@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist310.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist310.html" />
@@ -173,10 +270,11 @@
 
     <main class="content-wrapper">
 <p>Fredrik Anton Olai Baade</p>
-<p>(Kfr: 'Torvald Baade: Slekta etter overvraker i Trondhjem Daniel Baade')</p>
+<p>(Kfr: 'Torvald Baade: Slekta etter overvraker i Trondhjem <a class="xref" href="hist210.html" title="Daniel Baade – Grønlandsmisjonen">Daniel Baade</a>')</p>
 <p>Kom bort på sjøen, sammen med  de to eldste sønnene sine.  </p> <p>Han var mye med i bygdestyringen og venstrepolitikken i de stormfulle 80-årene, og var ellers en forgangsmann når det gjaldt fiske og jordbruk.</p> <p>I 1938 reiste vennene hans en bautastein til minne om ham.</p>
 <p>I ‘Vestlandsnytt’ av 21 juni 1996 heter det:</p> <p>“Laurdag er det hundre år sidan voksingen Fredrik Baade og mannskapet på fire forliste og drukna i Breisundet, på veg til ein kappseilas i Trondheim. Den 48 år gamle Fredrik hadde med seg sine to søner Peter (14) og Kornelius (12), saman med to ungdomar fra Haugsbygda, Ragnvald Jakobson Hauge (20) og Knut Jakobson Saure (19).</p> <p>Detaljane kring forliset som skjedde den 22 juni 1896 har aldri kome fram, berre at ulukka skjedde i Breisundet, og at dei omkomne aldri vart funne. Listerskøyta til Baade gjekk ned syd for Hogstein fyr.</p> <p>Syskenbornet til Fredrik, som heitte Fredrik Iverson, seglde i førevegen med sin møring og kom seg velberga til Ålesund i stormen. Det er klart at mannskapet var av dei første sportsfolka frå Sande kommune. Året før hadde båten til Baade vunne ein seglas i Kristiansund.</p> <p>Den tragiske ulukka sette djupe spor i lokalsamfunnet, og sjølsagt spesielt i Baadetunet på Voksa. Peter og Kornelius var dei to eldste gutane til Birthe og Fredrik Baade. Dei fem ungane som vart att var i 1896 mellom eitt og ti år gamle.</p> <p>Kona Birthe (fødd Sivertsdatter Helland)fekk altså travle år, før borna vaks til og kunne ta over gardsdrifta. Seinare kom mange med lovord om hennar viljesterke måte å komme seg gjennom den vanskelege perioden på. Sonen Torvald, som seinare vart ordførar i Sande, tok over garden etter Fredrik. Torvald var yngst i ungeflokken, fødd i 1895.</p> <p>I 1938 reiste vener og familie, med Sandsøy frilynde ungdomslag som ein stor pådrivar, ein stor bauta i Baadetunet, ein minnestein etter ulukka som skjedde 42 år tidlegare. Eit minne spesielt til ære for føregangsmennesket Fredrik Baade, ein mann som mellom anna var med på arbeidet som førte til skipinga av Sande og Rovde sparebank. Baade var også aktiv i heradsstyret og soknerådet og han var varamann til Stortinget. I ‘Sandesoga’ blir det opplyst at han var kyrkjeverge då Sande kyrkje vart bygd i 1890.</p> <p>“Vener reiste denne stein” er den enkle påskrifta ein kan lese på kopartavla til bautaen. Vi får vidare opplyst at Karl Rønneberg og Ditlef Olsen var sterkt involvert i arbeidet med å få opp steinen. I ein artikkel frå ‘Sunnmørsposten’ heiter det også at steinen vart reist  “med beste studnad frå Johannes Ristesund og Anders Hovden”.</p> <p>Det var samla så mykje som 800 menneske under avdukinga 2. Pinsedag i 1938, det var rektor Olav Riste som stod for avdukingstalen. Frå Ørsta kom Henrik Straumsheim ‘med song og musikk’ som det heiter i avisreferatet frå avdukinga. Sokneprest Johannes Ristesund hadde ved høvet skrive ein eigen Sandesong som vart urframført på Voksa.</p> <p>Rundt 30 motorkuttarar frå heile distriktet hadde funne vegen til Voksa, der dei gjekk i  ‘båtrevy’ rundt Voksa. Mellom anna gjorde batane ein stogg på vika syd for Sande kyrkje, der det vart ringt med kyrkjeklokkene.</p> <p>Det praktiske med denne batrevyen vart teke hand om av Ditlef Olsen, handelsmann på Sandshamn. I referata frå avdukinga heiter det at Olsen lurte på om han hadde teke på seg for mykje, då han såg alle båtane som kom frå alle kantar med kurs for Voksa denne finversdagen. Olsen kunne imidlertid puste letta ut då tilstelninga synte seg svært vellukka.</p> <p>Baade-familien, som i si tid kjøpte heile Voksa og delte den vesle øya mellom seg, nedstammar direkte frå dansk embetsadel. Kanskje tykte dei spesielt om Voksa fordi øya er så flatlendt, mest som i Danmark. Her er store, opne flater som egnar seg godt til gardsbruk, med ei lita høgde litt over femti meter over havet.</p> <p>Avis ‘Dagen’ skreiv i 1938 om mennesket Fredrik Baade: “....Han var norsklynd og frilynd og ein sann demokrat, venstremann med liv og sjel, varamann til Stortinget og mykje meir”.</p> <p>Bautaen står på garden der Freystein Baade (son til Torvald) i dag er drivar. I dag bur det ein annan Fredrik Baade på Voksa, han vart oppattkalla etter bestefaren og er i dag pensjonert gardbrukar.</p> <p>Eg var 10 år da bautaen vart avduka i pinsa 1938, og hugser hendinga godt. Det har vel verken før eller sidan vore så mykje folk på Voksa.  Heile vika var full av båt, største båten var ‘Juvel’. Folk kom frå fjern og nær. Noko av det som eg hugsar best er at det var stelt i stand med langbord på låven, der den store gjesteflokken åt middag, seier Fredrik Baade.</p> <p>Avisen ‘Dagen’ var frå seg i begeistring over gjestebodet og legg til at ‘folk sat også yver alle bakkar’.</p> <p>Baade vart i mange av talane i 1938 omtala som ‘hovding’. Det skulle seie sitt om korleis folket såg på mannen som saman med dei fire ungdomane kom bort så altfor tidleg. Men minnesteinen står der framleis og vitnar om ein som raga eit hovud høgare enn dei andre - i dobbel forstand.</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist255.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Michael Baade – Misjonær i Porsanger</span></a><a href="marta-ringset-minneoppgave.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Marta Ringset – Minneoppgave</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

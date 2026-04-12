@@ -205,6 +205,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/byen-gylne-skinn-3-nansen.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/byen-gylne-skinn-3-nansen.html" />
@@ -237,8 +334,6 @@
 <li><a href="#slutt">Slutt</a></li>
 </ul></div>
 
-
-
 <div title="header">
 </div><p>Byen med det gylne skinn – bok 3</p>
 <h2 id="til-grusia-i-1920">Til Grusia i 1920</h2>
@@ -265,7 +360,8 @@
 <h2 id="vilna-1922">Vilna 1922</h2>
 <p>Polakkene hadde uten videre besatt Vilna og, for å bringe orden i forholdene planla de allierte en folkeavstemning under betryggende kontroll av fremmede tropper.</p> <p>Norge skulle sende et kompani og som ’overinspektør’ ble utnevnt vår general Carl Gulbrandsen som under seg skulle ha noen distriktssjefer. En av disse var jeg.</p> <p>Det ble ikke noe av hele affæren. Det ble ingen folkeavstemning i Vilna. Men vi som skulle av sted hadde fått penger til å fiffe oss opp, så jeg hadde anskaffet meg ny, fin uniform.</p> <p>Noe utbytte hadde jeg altså hatt av planen!</p>
 <h2 id="slutt">Slutt</h2> <p>Som avslutning på disse mine erindringer vil jeg sende en takk og en vennlig tanke til mine foreldre som tross dårlig råd skaffet meg den solide utdannelse jeg hadde. Uten den ville jeg ikke ha kunnet ferdes så lett som jeg gjorde, blandt alle disse fremmede folkeslagene, og uten den ville jeg ikke kunnet ha åpent øye og øre for alt det underlige jeg så og hørte. Jeg ville heller ikke hatt forutsetninger for å forstå det som foregikk rundt meg..</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="byen-gylne-skinn-2.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Russland & Byen med det gylne skinn – del 2</span></a><a href="byen-med-kanonen.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Narvik 1940 – Byen med kanonen</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

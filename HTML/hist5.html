@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist5.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist5.html" />
@@ -173,7 +270,8 @@
 
     <main class="content-wrapper">
 <p>Hans Nielsen Speilberg</p> <p>f. 5 des 1713 i kjøbenhavn</p> <p>d. 23 sept 1792 i Holt v. Tvedestrand</p> <p>Teologisk embedseksamen I 1736. Samme år kom han til Kristiania som lærer for biskop Hersleb’s barn. I 1738 ble Hersleb utnevnt til biskop I Sjælland og Speilberg fulgte med til Kjøbenhavn.</p> <p>Etter anbefaling fra Hersleb ble han kalt til sogneprest I Hommedal I Landvik 26 aug 1740 og ble innviet 25 nov 1740 av biskop J. Kærup. Dette kallet var tungt og besværlig med mange slitsomme anneks-reiser og han var her I 24 år, før han ble forflyttet til Holt prestegjeld. Han ble derpå kåret til vise-prost i Nedenes av samtlige av prostiets prester og etter at Stilling I Arendal døde, ble han prost den 23 sep 1756.</p> <p>Den 11 sep 1742 giftet han seg med Riborg Christine Tybring og bryllupet stod på gården Store Øyestad I Øyestad prestegjeld.</p> <p>Den 26 august 1790 mottok han, da han hadde vært prest I 50 år, et æresskrift forfattet av sogneprest Thestrup I Arendal. Skriftet var undertegnet av hans svoger, biskop Tybring, og samtlige prostiets prester.</p> <p>Han døde 23 sept 1792, nær 79 år gammel.</p> <p>Speilberg var den siste prest i Holt som ble begravet i kirken. Sognepresten til Gjerstad, Hana Abel, hedret hans minne med et minneskrift som han lot trykke.</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist3.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Jørgen Pederssøn Schjelderup</span></a><a href="hist9-conrad-lassen.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Conrad Lassen</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

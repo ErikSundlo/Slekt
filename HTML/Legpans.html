@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/Legpans.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/Legpans.html" />
@@ -182,7 +279,8 @@
 <p>Vi hadde i Legionen en underoffiser Svenningsen fra Oslo, en mann som var full av ideer. Jeg traff ham en dag han satt i grava og filosoferte og sang viser, og vi pratet om løst og fast.</p> <p>”Her har jeg et merkelig våpen” sa han og viste meg en liten sprettert.</p> <p>”Hva er det for noe?” sa jeg.</p> <p>”Nå skal du se” sa han.</p> <p>Dermed slo vi to påler ned i bakken og festet en bilslange til disse pålene, akkurat som vi som guttunger satte en strikk i en gaffel. Så dro han slangen tilbake til et merke han hadde satt i gravkanten og la en stein i bunnen av denne slyngen.</p> <p>Jeg kikket i min observasjonskikkert da han dro slyngen tilbake og slapp den, og jeg så hvordan steinen datt ned på taket av en russisk bunker så støvskyen stod!</p> <p>”Det må du prøve med en granat også!” sa jeg.</p> <p>”Jeg har ikke flere! Jeg har sendt dem av gårde alle sammen!”</p> <p>”Du kan få av meg” sa jeg og ga ham et par kasser.</p> <p>Og han skøyt! Det dundret og røyk der fremme, etter som han ambulerte i grava og skøyt, snart fra det ene stedet, snart fra det andre.</p> <p>Vi hadde mye moro med ham og døpte oppfinnelsen hans ’Svenningsens Hemmelige Våpen’.</p> <p>Vi var alle begeistret for oppfinnelsen og ble derfor himlanes forbannet, da han en dag fortalte at han var blitt utsatt for press for å holde opp. ”I går, straks jeg var ferdig og satt og tok meg en røyk, kom en offiser bort til meg og sa:’Ikke gjør det der! De andre kan oppdage det og begynne på samme måten!’   Men vet dere hva jeg svarte?  Jeg skvatt opp, slo hela sammen og sa: ’Jeg trodde det var krig vi var i!’”</p>
 <p>Den 15 mai 1942 ble Bernt såret av en granat som eksploderte på bunkertaket og ble 18 mai transportert til sykehus i Krasnoje Selo. Han lå i køya, da granaten kom, og husker ikke annet enn et glimt. Han  våknet til fullt kaos i bunkeren, men ble hjulpet etter beste evne av en kamerat Rygh fra Trøndelag. Begge trommehinnene var sprengt. Han ble sendt til spesialist i Polen, så kom han til Graz og derfra til Holmestrand. Han ble så behandlet på Akers krigslasarett og ble den 31 okt 1942 dimittert, i det han ikke lengere kunne anses som stridsdyktig.</p>
 <p>Bernt er stille en stund. Så sier han: ” Jeg har så mange gode minner at jeg ikke vet, hvilket uttrykk jeg skal bruke. Jeg tenker på dem som falt der ute, på alle mine gode kamerater, hvis siste ord var:’Hils Norge!’, ’Hils Quisling!’, ’Hils familien!’, ’Jeg gjorde min plikt for Norge!’ – Det ble sagt så mange strålende ting i siste øyeblikk at det er ikke til å tro! Og disse flotte guttene som ligger der borte i en ukjent grav blir her hjemme kalt for landsforredere! For en skam!</p> <p>Men jeg vil aldri – så lenge jeg lever – glemme de gutta som stod sammen med meg der borte i øst!”</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="Legiogri.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Den Norske Legion – organisasjon og grunnlag</span></a><a href="Reggerm.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Med Germania – Arnt Torp forteller</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

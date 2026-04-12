@@ -145,6 +145,163 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    .toc {
+        background: var(--gold-light, #f5edda);
+        border: 1px solid var(--border, #ddd5c8);
+        border-left: 4px solid var(--gold, #9a6e1a);
+        border-radius: 6px;
+        padding: 18px 22px;
+        margin-bottom: 2.5em;
+        font-size: 0.92rem;
+    }
+    .toc-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        color: var(--navy, #1c3557);
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+    .toc ul {
+        margin: 0;
+        padding-left: 1.2em;
+        list-style: none;
+    }
+    .toc ul li {
+        margin-bottom: 4px;
+        line-height: 1.5;
+    }
+    .toc ul li::before {
+        content: '– ';
+        color: var(--gold, #9a6e1a);
+        font-weight: 600;
+    }
+    .toc a {
+        color: var(--navy, #1c3557);
+        text-decoration: none;
+    }
+    .toc a:hover {
+        color: var(--gold, #9a6e1a);
+        text-decoration: underline;
+    }
+    .content-wrapper h2 {
+        scroll-margin-top: 60px;
+    }
+    .content-wrapper h3 {
+        scroll-margin-top: 60px;
+    }
+    /* Style <ol> tables of contents within document body */
+    .doc-toc {
+        background: var(--gold-light, #f5edda);
+        border: 1px solid var(--border, #ddd5c8);
+        border-left: 4px solid var(--gold, #9a6e1a);
+        border-radius: 6px;
+        padding: 16px 20px;
+        margin: 1.5em 0;
+        font-size: 0.92rem;
+    }
+    .doc-toc li {
+        margin-bottom: 3px;
+    }
+
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist10-konrad-bertram-holm-sundlo.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist10-konrad-bertram-holm-sundlo.html" />
@@ -171,46 +328,38 @@
         <h1>Konrad Bertram Holm Sundlo</h1>
     </header>
 
-    <main class="content-wrapper">
+    <main class="content-wrapper"><div class="toc"><div class="toc-title">Innhold</div><ul><li><a href="#biografi">Biografi</a></li>
+<li><a href="#utdanning-og-militær-karriere">Utdanning og militær karriere</a></li>
+<li><a href="#nasjonal-samling-og-politisk-virke">Nasjonal Samling og politisk virke</a></li>
+<li><a href="#9-april-1940-hva-skjedde-egentlig-i-narvik">9. april 1940 – hva skjedde egentlig i Narvik?</a></li>
+<li><a href="#under-okkupasjonen-19401945-den-reelle-årsaken-til-dommen">Under okkupasjonen 1940–1945 – den reelle årsaken til dommen</a></li>
+<li><a href="#rettssak-og-dom">Rettssak og dom</a></li>
+<li><a href="#historisk-vurdering">Historisk vurdering</a></li>
+<li><a href="#les-mer">Les mer</a></li>
+</ul></div>
 
 <h2 id="biografi">Biografi</h2>
-
 <p>Konrad Bertram Holm Sundlo (1. januar 1881 – 25. mai 1965) var en norsk militæroffiser og oberst. Han er i ettertid blitt fremstilt som forræderen som «overga Narvik til Tyskerene  uten kamp» 9. april 1940, men denne fremstillingen er i stor grad basert på rykter og etterfølgende propaganda. Både lagmannsrett og Høyesterett frifant ham for forsettlig forræderi knyttet til hendelsene i Narvik. Det den juridiske prosessen faktisk fastslo var at hans dårlige ettermæle skyldtes hans aktive deltakelse i Nasjonal Samlings okkupasjonsapparat – ikke selve overgivelsen.</p>
-
-<h2 id="utdanning-og-karriere">Utdanning og militær karriere</h2>
-
+<h2 id="utdanning-og-militær-karriere">Utdanning og militær karriere</h2>
 <p>Sundlo avla examen artium i 1899 og gjennomgikk Krigsskolens øverste avdeling i 1902. Etter videre utdanning ved Militærhøyskolen i 1905 steg han gradvis i gradene: kaptein i 1911, major i 1930 og oberst i 1933. Samme år ble han utnevnt til sjef for Hålogaland infanteriregiment (IR 15) med hovedkvarter i Narvik. Han utgav i 1934 regimentets historie, trykt i Bodø.</p>
-
-<h2 id="ns-og-politisk-virke">Nasjonal Samling og politisk virke</h2>
-
+<h2 id="nasjonal-samling-og-politisk-virke">Nasjonal Samling og politisk virke</h2>
 <p>Sundlo meldte seg inn i Vidkun Quislings Nasjonal Samling i 1933 – samme år som han ble forfremmet til oberst og fikk kommandoen i Narvik. Gjennom 1930-årene fungerte han parallelt som NS-leder for Nordland og Troms. Hans kjente pro-tyske holdninger ble formidlet til Hitler av Quisling allerede høsten 1939, og admiralstaben i Berlin betraktet ham som en offiser med sympatier for Tyskland.</p>
-
-<h2 id="9-april-1940">9. april 1940 – hva skjedde egentlig i Narvik?</h2>
-
+<h2 id="9-april-1940-hva-skjedde-egentlig-i-narvik">9. april 1940 – hva skjedde egentlig i Narvik?</h2>
 <p>Om morgenen 9. april 1940 seilte ti tyske destroyere med rundt 2 000 elitesoldater under general Eduard Dietl inn Ofotfjorden. De norske panserskipene <em>Eidsvold</em> og <em>Norge</em> ble senket av tyske torpedoer med store mannskapstap – den militære situasjonen til lands var i realiteten allerede avgjort av den tyske marine, ikke av Sundlo. Sundlos garnison bestod av om lag 700–800 delvis mobiliserte infanterister, og han valgte å kapitulere under henvisning til faren for sivile tap og den uforberedte tilstanden til troppene. Divisjonssjef general Carl Gustav Fleischer reagerte med å arrestere Sundlo og erklærte ham offentlig som landssviker – en betegnelse som festet seg og som har dominert Sundlos ettermæle frem til i dag.</p>
-
 <p>Det er imidlertid avgjørende å understreke at Fleischers uttalelse var et kampfrontutsagn under kaos, ikke en rettslig konstatering. Da saken ble grundig gjennomgått i retten, fant verken lagmannsretten i 1947 eller Høyesterett i 1948 grunnlag for å dømme ham for forsettlig forræderi. Retten konkluderte med at det høyst dreide seg om uaktsomhet i tjenesteplikten – altså en militær feilvurdering, ikke et bevisst svik mot landet.</p>
-
-<h2 id="okkupasjonstiden">Under okkupasjonen 1940–1945 – den reelle årsaken til dommen</h2>
-
+<h2 id="under-okkupasjonen-19401945-den-reelle-årsaken-til-dommen">Under okkupasjonen 1940–1945 – den reelle årsaken til dommen</h2>
 <p>Det Sundlo faktisk ble domfelt for, var sin aktive rolle i NS-apparatet under okkupasjonen. Fra høsten 1940 ledet han Rikshirden som rikshirdsjef. I 1943–1944 var han NS-utnevnt fylkesmann i Oslo og Akershus, og fra 1944 til kapitulasjonen i mai 1945 fylkesmann i Sogn og Fjordane. Han arbeidet aktivt for rekruttering av norske frivillige til Waffen-SS «Den norske legion» og tok til orde for tvungen innsats på Østfronten. Det er disse handlingene – ikke overgivelsen av Narvik – som utgjorde kjernen i landssvikdommen mot ham.</p>
-
 <h2 id="rettssak-og-dom">Rettssak og dom</h2>
-
 <p>Sundlo ble stilt for Eidsivating militære lagmannsrett. Dom falt 13. mai 1947: han ble <em>frifunnet</em> for forsettlig forræderi knyttet til overgivelsen av Narvik – retten fant ingen bevis for at dette var et bevisst svik. Han ble derimot <em>dømt</em> for sin omfattende kollaborasjon som rikshirdsjef, fylkesmann og verveoffiser. Straffen ble livsvarig tvangsarbeid med inndragning av formue. Norges Høyesterett stadfestet dommen 5. oktober 1948 og bekreftet dermed frifinnelsen for Narvik-hendelsen. Sundlo ble benådet i 1952 etter å ha sonet om lag fem år. Han døde på Nesøya i Asker 25. mai 1965.</p>
-
 <h2 id="historisk-vurdering">Historisk vurdering</h2>
-
 <p>Jan P. Pettersen har i boken <em>Oberst Konrad Sundlo</em> (2025) gjennomgått over 3 000 sider rettsdokumenter fra 1947-prosessen og konkluderer med at Sundlo ikke fikk en rettferdig behandling i den offentlige debatten. Pettersen viser at nederlaget i Narvik skyldtes systemsvikt på tvers av det politiske og militære hierarkiet, og at Sundlo i stor grad ble brukt som syndebukk. Den negative folkelige oppfatningen av Sundlo – at han «solgte» Narvik – er altså ikke i samsvar med hverken domstolenes faktiske konklusjoner eller en nyansert gjennomgang av kildene. Hans reelle historiske skyld ligger i okkupasjonstidens virke for NS.</p>
-
 <h2 id="les-mer">Les mer</h2>
-
 <ul>
-  <li><a href="https://no.wikipedia.org/wiki/Konrad_Sundlo" target="_blank" rel="noopener">Konrad Sundlo – Wikipedia (norsk)</a></li>
-  <li><a href="https://www.norli.no/boker/dokumentar-og-fakta/historie-og-dokumentar/krig-og-historie/oberst-konrad-sundlo-9788292844502" target="_blank" rel="noopener">Jan P. Pettersen: <em>Oberst Konrad Sundlo</em> – Norli</a> – bok basert på over 3 000 sider rettsdokumenter fra 1947-saken; konkluderer med at Sundlo ikke ble rettferdig behandlet og at hans dårlige rykte er uberettiget hva angår Narvik-overgivelsen</li>
+<li><a href="https://no.wikipedia.org/wiki/Konrad_Sundlo" rel="noopener" target="_blank">Konrad Sundlo – Wikipedia (norsk)</a></li>
+<li><a href="https://www.norli.no/boker/dokumentar-og-fakta/historie-og-dokumentar/krig-og-historie/oberst-konrad-sundlo-9788292844502" rel="noopener" target="_blank">Jan P. Pettersen: <em>Oberst Konrad Sundlo</em> – Norli</a> – bok basert på over 3 000 sider rettsdokumenter fra 1947-saken; konkluderer med at Sundlo ikke ble rettferdig behandlet og at hans dårlige rykte er uberettiget hva angår Narvik-overgivelsen</li>
 </ul>
 
-</main>
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist9-conrad-lassen.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Conrad Lassen</span></a><a href="hist13-johan-marius-sundlo.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Johan Marius Sundlo</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/Skibat.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/Skibat.html" />
@@ -183,7 +280,8 @@
 <p>Om kvelden på denne dagen var hele Skibataljonen blitt samlet bak en høyde, og så rykket vi frem, sammen med regimentet.</p> <p>Da vi kom opp under russernes stillinger, hørte vi skrål og skrik og bikkjehyl. Russerne sendte opp lysraketter. Vi snek oss videre og så dannet hele bataljonen ’Pinnsvinstilling’. Og der ble det ved 3-4 tiden om morgenen vill kamp. Radiomelding fortalte oss at store russiske forsterkninger var på fremmarsj.</p> <p>Skibataljonen fikk nå ordre om å gå frem og støtte straffekompaniene som sloss med den russiske feltvakten. Mens vi lå der og ventet på ordre om fremrykking, gikk russerne i gang med å skyte med sine svære granatkastere som knekket digre trær. Det ble da tatt ut 35 mann, hele 2. tropp under ledelse av Gauslå og med meg som nestkommanderende.Vi skulle snike oss helt opp i kamplinjen.</p> <p>I mens hadde tyske fly oppdaget de russiske forsterkningene som de bombet.</p> <p>Så gikk vi frem mens resten av bataljonen ble liggende tilbake. Vi hadde med oss en sanitetsmann og en melder som skulle holde forbindelsen mellom meg og Gauslå.</p> <p>Vi gikk så langt at vi til slutt hadde vill kamp rundt oss på alle sider. Vi måtte derfor grave oss ned og når vi gikk frem, krøp vi forsiktig med skiene i handa, for vi tok av oss skiene. Slik karret vi oss fremover et par hundrede meter, men så var vi blitt oppdaget av russiske fly, og fra den russiske hovedstillingen rett foran oss skjøt russerne med granatkastere og artilleri, så store deler av skogen ble rasert.</p> <p>Vi retirerte derfor.</p> <p>Men det var russere over alt, så bataljonen fikk ordre om å gå tilbake, og vi gikk tilbake langs et vann, til vi var i våre stillinger igjen på høyde 200. Vi kom sist til høyden og så da, at bataljonen var i vilt virvar.</p> <p>Vi ble så liggende på høyden noen dager. – Dette var i 1944. Så ble vi alarmert igjen og da vi gikk frem, trakk russerne seg tilbake. Vi ble liggende foran minesperringene hele natten og ventet på et russisk angrep, men det kom ikke.</p>
 <p>Kp 2. – under ledelse av Skjefstad – var en dag gått ut på en patrulje, da det like utenfor minefeltet kom rett oppi en russisk lurestilling. To mann falt og to ble såret.</p>
 <p>Hvorledes var det at Gust Jonassen falt?</p> <p>Det hendte i mars 1943. Jonassen hadde vært ute på patrulje og da han kom tilbake, gikk han opp i et av våre minefelter. Regelen var den, at når en patrulje kom tilbake, skulle vaktposten som lå fremme gi dem et vink hvor de skulle gå. For de måtte gå svært nøyaktig for ikke å trå på minene våre. Den brukbare vegen var ofte bare så bred som et skispor, så vaktene måtte passe på.</p> <p>Men den posten Jonassen støtte på hadde ikke vært oppmerksom nok. Det var en tysker og han ga ingen beskjed. Jonassen var trett og blaut – ja, du vet hvordan det er – så han kommanderte spredning, og dermed gikk troppen inn i minefeltet og minene sprang. Det var S-miner.</p> <p>Jonassen ble fryktelig såret. Jeg var med på å bære ham bort til flyet som skulle ta ham til lasarettet, men han døde i flyet.</p> <p>Bilden fikk en kule i brystet og ble drept. Det var en kjekk kar!</p> <p>En Strand døde momentant.</p> <p>Dessuten falt det en tysker som var den dyktigste soldat på hele fronten og som av tyskerne hadde fått tilnavnet ’russernes skrekk’. Han skulle om to dager reist på permisjon og skulle forfremmes til offiser.</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="Reggerm.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Med Germania – Arnt Torp forteller</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

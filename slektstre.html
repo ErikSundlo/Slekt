@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slektstre – Historisk arkiv</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#1c3557;--navy-light:#2a4a7a;--gold:#9a6e1a;--gold-light:#f5edda;--cream:#faf7f2;--paper:#ffffff;--text:#2d2929;--text-muted:#7a726b;--border:#ddd5c8;--shadow:rgba(28,53,87,0.12);}
+    body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.85;font-size:17px;min-height:100vh;}
+    a{color:var(--navy);text-decoration:none;} a:hover{color:var(--gold);text-decoration:underline;}
+    nav.top-nav{background:var(--navy);padding:12px 30px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+    nav.top-nav a{color:rgba(255,255,255,0.88);font-size:0.88rem;font-weight:600;letter-spacing:0.3px;}
+    nav.top-nav a:hover{color:#fff;text-decoration:none;}
+    nav.top-nav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px;}
+    .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:55px 30px 50px;text-align:center;border-bottom:4px solid var(--gold);}
+    .page-header h1{font-family:'Lora',Georgia,serif;font-size:2.1rem;font-weight:600;line-height:1.3;max-width:760px;margin:0 auto;}
+    .page-header p{margin-top:10px;opacity:0.85;font-size:1rem;}
+    .content-wrapper{max-width:1100px;margin:0 auto;padding:50px 30px 80px;background:var(--paper);box-shadow:0 0 40px var(--shadow);min-height:60vh;}
+
+    .tree-section{margin-bottom:3em;}
+    .tree-section h2{font-family:'Lora',Georgia,serif;color:var(--navy);font-size:1.4rem;font-weight:600;margin-bottom:1em;padding-bottom:8px;border-bottom:2px solid var(--gold);}
+
+    .tree{display:flex;flex-direction:column;align-items:center;}
+    .tree-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:8px;position:relative;}
+    .tree-connector{width:2px;height:20px;background:var(--border);margin:0 auto;}
+    .tree-branch{display:flex;justify-content:center;position:relative;margin-bottom:8px;}
+    .tree-branch::before{content:'';position:absolute;top:0;left:25%;right:25%;height:2px;background:var(--border);}
+
+    .person{display:inline-block;padding:10px 16px;border:2px solid var(--border);border-radius:8px;background:var(--paper);text-align:center;min-width:160px;transition:0.15s;}
+    .person:hover{border-color:var(--gold);box-shadow:0 2px 10px var(--shadow);}
+    .person a{display:block;}
+    .person .name{font-family:'Lora',Georgia,serif;font-weight:600;font-size:0.95rem;color:var(--navy);}
+    .person:hover .name{color:var(--gold);}
+    .person .dates{font-size:0.82rem;color:var(--text-muted);margin-top:2px;}
+    .person .role{font-size:0.78rem;color:var(--text-muted);font-style:italic;margin-top:2px;}
+    .person.highlight{border-color:var(--gold);background:var(--gold-light);}
+    .person.couple{border-style:double;border-width:3px;}
+    .marriage{display:flex;align-items:center;gap:12px;margin-bottom:8px;justify-content:center;flex-wrap:wrap;}
+    .marriage-symbol{font-size:1.2rem;color:var(--gold);}
+    .children-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding-top:12px;border-top:2px solid var(--border);margin-top:8px;}
+
+    .legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:2em;padding:16px;background:var(--gold-light);border-radius:8px;font-size:0.88rem;}
+    .legend-item{display:flex;align-items:center;gap:6px;}
+    .legend-swatch{width:20px;height:20px;border-radius:4px;border:2px solid;}
+
+    footer.page-footer{text-align:center;padding:28px 30px;background:var(--navy);color:rgba(255,255,255,0.55);font-size:0.82rem;}
+    footer.page-footer a{color:rgba(255,255,255,0.7);}
+
+    @media (max-width:700px){
+        .person{min-width:120px;padding:8px 10px;}
+        .person .name{font-size:0.85rem;}
+        .marriage{flex-direction:column;gap:6px;}
+    }
+    @media print{nav.top-nav,footer.page-footer{display:none;}.page-header{background:none!important;color:#000!important;border-bottom:2px solid #333;padding:20px 0;}.page-header h1{color:#000;}.content-wrapper{box-shadow:none;padding:20px 0;max-width:100%;}body{background:#fff;}a{color:#000;}}
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html">Historisk arkiv</a>
+            <span style="color:rgba(255,255,255,0.35)">·</span>
+            <a href="index.html">Tilbake til oversikten</a>
+        </div>
+    </nav>
+    <header class="page-header">
+        <h1>Slektstre</h1>
+        <p>En forenklet oversikt over familielinjene Sundlo, Speilberg, Ringset og Baade</p>
+    </header>
+    <main class="content-wrapper">
+
+        <div class="tree-section">
+            <h2>Sundlo-linjen</h2>
+            <div class="tree">
+                <div class="tree-row">
+                    <div class="person">
+                        <a href="HTML/hist3.html">
+                            <div class="name">Jørgen Pederssøn Schjelderup</div>
+                            <div class="role">Tidlig stamfar</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="tree-row">
+                    <div class="person">
+                        <a href="HTML/hist16.html">
+                            <div class="name">John Kjelbergsen Sundlo</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="tree-row">
+                    <div class="person">
+                        <a href="HTML/hist23-kjelberg-johnsen-sundlo.html">
+                            <div class="name">Kjelberg Johnsen Sundlo</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="tree-row">
+                    <div class="person">
+                        <a href="HTML/hist13-johan-marius-sundlo.html">
+                            <div class="name">Johan Marius Sundlo</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="marriage">
+                    <div class="person highlight">
+                        <a href="HTML/hist10-konrad-bertram-holm-sundlo.html">
+                            <div class="name">Konrad Bertram Holm Sundlo</div>
+                            <div class="dates">1881–1965</div>
+                            <div class="role">Oberst, Hålogaland inf.reg.</div>
+                        </a>
+                    </div>
+                    <span class="marriage-symbol">&#9829;</span>
+                    <div class="person">
+                        <div class="name">Katrine Speilberg</div>
+                        <div class="role">f. Speilberg</div>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="marriage">
+                    <div class="person highlight">
+                        <div class="name">Harald Sundlo</div>
+                        <div class="dates">1927–2019</div>
+                        <div class="role">Samlet og nedskrev arkivet</div>
+                    </div>
+                    <span class="marriage-symbol">&#9829;</span>
+                    <div class="person">
+                        <div class="name">Borgny Ringset</div>
+                        <div class="role">f. Ringset</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tree-section">
+            <h2>Speilberg-linjen</h2>
+            <div class="tree">
+                <div class="tree-row">
+                    <div class="person">
+                        <a href="HTML/hist5.html">
+                            <div class="name">Hans Nielsen Speilberg</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="tree-row">
+                    <div class="person">
+                        <a href="HTML/hist9-conrad-lassen.html">
+                            <div class="name">Conrad Lassen</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="tree-row">
+                    <div class="person">
+                        <div class="name">Katrine Speilberg</div>
+                        <div class="role">Gift med Konrad Sundlo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tree-section">
+            <h2>Baade / Ringset-linjen</h2>
+            <div class="tree">
+                <div class="tree-row" style="gap:40px;">
+                    <div class="person">
+                        <a href="HTML/hist208.html">
+                            <div class="name">Michel Baade</div>
+                            <div class="role">Hanseatisk kjøpmann, Bergen</div>
+                        </a>
+                    </div>
+                    <div class="person">
+                        <a href="HTML/hist205.html">
+                            <div class="name">Frøystein Ringset</div>
+                            <div class="role">Liabygda, Sunnmøre</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="tree-row" style="gap:40px;">
+                    <div class="person">
+                        <a href="HTML/hist209.html">
+                            <div class="name">Hans Baade</div>
+                        </a>
+                    </div>
+                    <div class="person">
+                        <a href="HTML/hist430.html">
+                            <div class="name">Nils Edvard Olsen Ringset</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="tree-row" style="gap:40px;">
+                    <div class="person">
+                        <a href="HTML/hist310.html">
+                            <div class="name">Fredrik Anton Olai Baade</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="marriage">
+                    <div class="person">
+                        <div class="name">Marta Baade Ringset</div>
+                        <div class="role">f. Baade</div>
+                    </div>
+                    <span class="marriage-symbol">&#9829;</span>
+                    <div class="person">
+                        <a href="HTML/hist430.html">
+                            <div class="name">Nils Edvard Ringset</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tree-connector"></div>
+                <div class="tree-row">
+                    <div class="person">
+                        <div class="name">Borgny Ringset</div>
+                        <div class="role">Gift med Harald Sundlo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tree-section">
+            <h2>Andre familiemedlemmer i arkivet</h2>
+            <div class="children-row" style="border-top:none;margin-top:0;">
+                <div class="person"><a href="HTML/hist15.html"><div class="name">Halfdan Sundlo</div></a></div>
+                <div class="person"><a href="HTML/hist22.html"><div class="name">Mortine Kjelbergsdatter Sundlo</div></a></div>
+                <div class="person"><a href="HTML/hist37-albertine-sundlo.html"><div class="name">Albertine Sundlo</div></a></div>
+                <div class="person"><a href="HTML/hist38-othelie-sundlo.html"><div class="name">Othelie Sundlo</div></a></div>
+                <div class="person"><a href="HTML/hist17.html"><div class="name">Grim Saxvik</div></a></div>
+                <div class="person"><a href="HTML/hist431-marie-saxvik.html"><div class="name">Marie Saxvik</div></a></div>
+                <div class="person"><a href="HTML/hist119.html"><div class="name">Anders Larsen Holm</div></a></div>
+                <div class="person"><a href="HTML/hist163.html"><div class="name">Christian Andersen Holm</div></a></div>
+                <div class="person"><a href="HTML/hist160.html"><div class="name">Georg Burchard Baade</div></a></div>
+                <div class="person"><a href="HTML/hist210.html"><div class="name">Daniel Baade</div></a></div>
+                <div class="person"><a href="HTML/hist212.html"><div class="name">Peter Baade</div></a></div>
+                <div class="person"><a href="HTML/hist213.html"><div class="name">Steffen Baade</div></a></div>
+                <div class="person"><a href="HTML/hist254.html"><div class="name">Peter Daniel Baade</div></a></div>
+                <div class="person"><a href="HTML/hist255.html"><div class="name">Michael Baade</div></a></div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-swatch" style="border-color:var(--gold);background:var(--gold-light);"></div> Nøkkelpersoner</div>
+            <div class="legend-item"><div class="legend-swatch" style="border-color:var(--border);background:var(--paper);"></div> Dokumenterte personer</div>
+            <div class="legend-item"><span class="marriage-symbol">&#9829;</span> Ekteskap</div>
+        </div>
+    </main>
+    <footer class="page-footer">
+        Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;
+        <a href="index.html">Tilbake til oversikten</a>
+    </footer>
+</body>
+</html>

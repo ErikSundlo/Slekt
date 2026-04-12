@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist22.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist22.html" />
@@ -173,10 +270,11 @@
 
     <main class="content-wrapper">
 <p>Mortine Kjelbergsdatter Sundlo</p>
-<p>Fra Konrad Bertram Holm Sundlos' notater:</p>
+<p>Fra <a class="xref" href="hist10-konrad-bertram-holm-sundlo.html" title="Konrad Bertram Holm Sundlo">Konrad Bertram Holm Sundlo</a>s' notater:</p>
 <p>"Født 1843 på Sundlo. Død på Mossing i Åsen.</p> <p>Mortine var min fars eneste helsøster, den eneste av alle barna som overlevde - sammen med min far - nervefeberepidemien i 1850-årene, dengang også Berte strøk med. Min far fortalte at hans eneste bror tjenestegjorde som soldat i Trondhjem,og at det muligens var han som bragte smitten med hjem til Sundlo.</p> <p>Jeg (Konrad Sundlo) traff første gang Mortine da jeg i 1891 kom nordover, for jeg bodde da delvis på Sundlo, delvis på Aspås.</p> <p>Mortine var middels høy og mager. Hun var som liten jentunge blitt stanget i øyet av en sint ku, så hun var blind på det ene øyet. Men det var ikke tatt ut, men det bevirket at hun gikk med hodet litt på skakke.</p> <p>Hun var en ferm kjerring. Et drivandes stykke kvinnfolk som gjorde alt som en kjerring måtte kunne gjøre på en gård og gjøre det godt. Hun slaktet, bakte, vasket, brygget, vevde og støpte lys. Hun beredte skinn, hun gjorde alt.</p>
 <p>Hun var gift tre ganger.</p> <p>	Første gang med Thomas som drev med skreppehandel på Nordland, inntil han kjøpte og slo seg ned på  Aspås, på sydsiden av Movatn. Aspåsa, som det uttales, ligger visstnok i Åsen herred. “</p> <p> ( NB: Harald Sundlo f. 1927 : Etter bygdebok for Åsen fremgår følgende: Mortine ble i 1876 gift med Martin Arntsen (Andersen?) Naustberget fra Markabygda som i 1875 kjøpte Aspåsen av Jonetta Ellingsdatter.  -  Antar at opplysningene om Thomas ikke er korrekte. Martin er ført som ektemann i slektsprogrammet som Mortines første mann)  </p> <p>“Han og Mortine hadde et barn, en liten pike som døde,før hun  var blitt voksen. Jeg kan ikke huske Thomas, som formentlig var død før 1891, da jeg besøkte Mortine.”</p> <p>(NB: Harald Sundlo f. 1927: Barnet etter Martin og Mortine er oppgitt som Bertha Oline Martinsdatter f. 1877 ugift d. 1899. Bertha hadde en datter (?) f.1895 d. 1896)</p> <p>	“Annen gang ble Mortine gift med Germanus Mossing, fra Mossing i Åsen. En utmerket bra kar. Da jeg slo meg ned på Steinkjær, kom jeg flere ganger til Aspås og ble godt kjent med den høye, slanke, vakre karen som vel var 20 år yngre enn Mortine. Han fortalte gjerne om sin soldattid på Værnes, hvor han hadde eksersert som halvtroppsjef, og vi drev flere skarpe skytekonkurranser med min Krag-Jørgensen rifle som jeg alltid hadde med meg.</p> <p>Dessverre var Germanus ikke frisk. Han led av aastma som også ble hans bane. En natt - visstnok høsten 1907 - fikk han et voldsomt astma-anfall og løp i villelse og i bare skjorten ut av huset og nedover bakken til et stup mot Movatn. Der satte han seg inntil en bjerk som stod ytterst på stupet og her nådde Mortine ham igjen og tok fatt i ham. Og her døde han, i Mortines armer.</p> <p>	Mortine giftet seg noen år senere med Ole Mossing, en bror av Germanus, og flyttet til Mossing. Ole var også en meget kjekk kar so jeg etter hvert ble godt kjent med. Da jeg var på Sundlo sommeren 1891, tilbragte jeg nok mesteparten av tiden på Aspås hvor jeg hadde alle tiders sommer, for min mor fortalte, at da hun tok i mot meg på Østbanestasjonen ved min tilbakekomst, var det første jeg sa: ‘Æ vil te Aspås, æ!’</p> <p>Da Katrine og jeg var blitt forlovet høsten 1920, reiste vi inn og hilste på Mortine og ble mottatt med stor ‘fagnad’ av både Mortine og Ole. Og tjenestepiken, som het Matilde, fikk ordre om å henge over gryten og koke rømmegrøt.</p> <p>Så, mens vi satt på kjøkkenet, ble Mortine plutselig dårlig og besvimte for første gang i sitt liv. ‘Æ trur æ døyr!’ sa hun med det samme hun seg i gulvet.</p> <p>Vi la henne bort på benken, skvettet vann på henne og så kviknet hun til igjen. Og det første hun tenkte på da hun kom tilbake fra det hinsidige, var gjestene, for hun sang ut: ‘Matilde! Itj svi grauten!’</p> <p>	Mortine hadde ingen barn, hverken med Germanus eller Ole.”</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist17.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Grim Saxvik</span></a><a href="hist23-kjelberg-johnsen-sundlo.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Kjelberg Johnsen Sundlo</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

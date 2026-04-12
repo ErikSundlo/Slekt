@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/2-politi.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/2-politi.html" />
@@ -184,7 +281,8 @@
 <p>En del sårede russere begynte plutselig å skyte på nordmennene  ”…og da hadde vi  ikke annet å gjøre enn å kaste oss ned og begynne skarpskyting, til alle russerne var døde.”</p> <p>”Da vi hadde tatt livet av alle, oppdaget vi at vi var fordømt sultne og gikk derfor i gang med å titte i russernes ryggsekker og i bagasjen som de hadde ført med seg med rein. Og vi var heldige. For russerne var rikelig forsynte med slike gode saker som amerikansk sjokolade osv, så vi holdt altså en slags gala-fest der!</p> <p>Vi hadde telegrafert etter forsterkninger og da vi ser en avdeling på ca 40 mann i hvite forsvinningsdrakter komme mot oss, tar vi dem for våre og vinker. De vinker igjen. Men plutselig sprer de seg pålinje og åpner ild. Vi kastet oss ned og besvarte denne.</p> <p>Noen av våre på støttepunktet prøvde å omgå russerne og ta dem i ryggen og herunder faller tyskeren Burgdorf”.</p>
 <p>Av russerne klarte et par å komme seg unna. Russerne mistet i alt 126 døde og 26 fanger, mens det av støttepunktets besetning falt to mann mens en ble lett såret.</p> <p>Johan Gundersen ble innstilt til jernkorset I, men fikk det aldri. Det ble gitt til den tyskeren som overtok kommandoen da kompanifører Beck falt.</p>
 <p>Det stilnet av en tid og i april ble kompaniet avløst av Skijegerbataljonen som kom til å ta i mot det store russiske fremstøtet som knuste bataljonen. Bataljonen lå jo lengst fremskutt mot øst, slik som nordmennene alltid gjorde.</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="1.Politi.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">1. Politikompani – Fenrik Bødtker forteller</span></a><a href="3politi.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">1. Politikompani – Fortellinger del 3</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

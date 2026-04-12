@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist160.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist160.html" />
@@ -175,7 +272,8 @@
 <p>GEORG BURCHARD BAADE</p>
 <p>Fra ’Stranda Bygdebok II’ utgitt 1961:</p>
 <p>”……………..Tradisjonen vet også om et personlig oppgjør på Sløgstad mellom Hans Nilsen Hauge fra Tune og bergenseren Georg Burchard Baade.</p> <p>(Denne presten som var lengere I embedet enn noen annen var en merkelig og sammensatt mann. Her får vi nøye oss med hva Johan Nordahl Brun skrev i dagboken sin første gang de møttes I Fana tett før han skulle til Stranda: ’Gud bevare dette menneskes forstand!’ (Det var 22 juli 1798)).</p> <p>I 1799 besøkte Hauge Stranda og bodde på Ous. Etter at Baade var ferdig med prekenen i kirken, kalte Hauge folket til samling i tunet på prestegården og aktet å bruke borgstuetrappa til talerstol. Da han skulle komme i gang, kom presten, han hadde vært innom ungkarshjemmet sitt og styrket seg med en leskedrikk. Han stilte seg foran Hauge og spurte ham hvem hadde gitt ham tillatelse til å preke. Hauge svarte at det hadde intet menneske gjort, men han trodde å ha et kall til det fra Gud. Presten tok da frem et testamente på gresk og spurte om han kunne noe av det. Hauge svarte med å dra opp en luthersk katekisme og sa: ’Nei, men denne kan jeg og det er nok for meg!’</p> <p>Nå heter det etter tradisjonen at presten hadde alliert seg med en av medhjelperne sine og fikk ham til å skyve taleren utfor trappen så han lå flat i sølen. Da heter det at Hauge reiser seg igjen, tørker skiten av seg, snur seg mot presten og sier: ’Gid du var så fyllt av ånd som du nå er fyllt av vin!’……….”</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist208.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Michel Baade – Hanseatisk kjøpmann i Bergen</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

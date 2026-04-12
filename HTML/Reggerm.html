@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/Reggerm.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/Reggerm.html" />
@@ -206,7 +303,8 @@
 <p>En oppklaringspatrulje hadde bragt på det rene at russerne holdt på å samle nye tropper i en landsby ca en km foran våre stillinger. Fra vår bataljon skulle 2 kompanier, deriblandt min, i nattens mulm og mørke forsøke å drive fienden ut av landsbyen, før han hadde fått tid til å samle alt for store styrker der.</p> <p>Vi gikk til angrep i 23-tiden og kom helt inn i landsbyen, før vi ble oppdaget. Det viste seg snart at det ikke var så store styrker der som det var gjort regning med og etter et par timers kamp, var landsbyen tatt. Vi trodde vi straks skulle marsjere tilbake, men i stedet fikk vi ordre om å besette landsbyens utkanter. Det gikk en liten elv i utkanten av landsbyen og ved denne elven ble vaktpostene satt. Drescher og jeg som hadde maskingevær med oss fikk som vanlig vakt sammen. Vi laget oss en liten stilling bak noen trær med fri utsikt fremover og ga oss til å vente. Vaktholdet skulle bare vare til om morgenen. Da skulle vi trekke oss tilbake igjen.</p> <p>Det hadde så vidt blitt lyst, da jeg hører det rasle i noen busker bak oss. Jeg tenkte det var beskjeden om tilbaketrekking som kom, og sier dette til Drescher som ligger ved maskingeværet. Han snur seg i det samme jeg snakker til ham og jeg venter å se ham smile over den gode nyheten. I stedet får jeg se et ansikt der redselen står skrevet i hvert trekk og han roper: ”Pass opp!”</p> <p>Uvilkårlig griper jeg pistolen samtidig som jeg svinger meg rundt og der får jeg se en russer ikke mer enn 5 meter fra meg. Han hadde mord i blikket og stod akkurat på sprang til å kjøre en forskjærerkniv i meg, da jeg tømte pistolen i retning av magen hans.</p> <p>Jeg trodde mannen skulle falle om på flekken, for på 5 meters avstand bommer en ikke, selv med pistol, men nei! Riktig nok slapp han kniven. Men i stedet for å falle kaster han seg utfor en liten skråning som gikk ned mot elven og rullet ut på elveisen. Han var visstnok helt ferdig, men greide allikevel å komme seg over til den andre siden, ca 10 m, før Drescher hadde fått stilt inn maskingeværet og gitt ham ’nådestøtet’. Men russeren var seiglivet som en katt. For en halv time senere så vi ham krabbe opp på den andre siden!</p> <p>At russeren ikke hadde annet våpen enn en kniv, kom av at han hadde vært tatt til fange, men hadde greidd å slippe unna. På vegen gjennom landsbyen hadde han sansynligvis vært inne i et eller annet hus og hente kjøkkenkniven. Hadde han hatt skytevåpen, ville situasjonen vært en annen!</p>
 <p>Ikke lenge etter denne episoden, kom ordren om tilbaketrekking.</p>
 <p>Over nyttår 1942 ble jeg syk - gulsott - og kom til slutt, i september 1942, til Oslo.   </p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="Legpans.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Den Norske Legion – pansertropper</span></a><a href="Skibat.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Skibataljonen</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

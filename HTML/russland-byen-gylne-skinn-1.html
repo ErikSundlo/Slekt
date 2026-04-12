@@ -205,6 +205,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/russland-byen-gylne-skinn-1.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/russland-byen-gylne-skinn-1.html" />
@@ -236,8 +333,6 @@
 <li><a href="#tre-rubel-svarte-den-skjeggete-røveren">”Tre rubel” svarte den skjeggete røveren</a></li>
 <li><a href="#2-as-elektrokemisk-sender-meg-til-byen-med-det-gylne-skinn">2. A/S Elektrokemisk sender meg til byen med det gylne skinn.</a></li>
 </ul></div>
-
-
 
 <h1 id="byen-med-det-gylne-skinn"><b>Byen med det gylne skinn</b></h1>
 <p>Julen 1998 fikk jeg av min bror Nils Asbjørn overlevert tre hefter, der vår far – Konrad Sundlo – hadde skrevet et utkast til erindringer fra sin tid i Kaukasus mm.</p> <p>Som han selv skrev til vår mor i en innledning dat 19 sept 1947 :  </p>
@@ -348,7 +443,8 @@
 <p> Da Faye var reist, flyttet altså hun inn med sine barn, og noen dager senere var jeg atter med på et avskjedsselskap, denne gang hos en polsk familie som ville gjøre litt for min husbestyrerinnes mann som nå hadde fått marsjordre.</p> <p> Så fulgte vi også ham til stasjonen og skjebnen ville det så at jeg atter fulgte en venn som aldri kom tilbake. For noen måneder senere overrasket jeg min husbestyrerinne i hjerteskjærende gråt, og da jeg spurte hva som stod på, fikk jeg vite det var kommet brev om at hennes mann var død. Et eller annet sted på Trans-Kaspias sydlige ørkengrense hadde flekktyfusen drept ham.</p>
 <p>Vi ordnet oss slik at min husbestyrerinne med barn fikk de to soveværelsene. Jeg tok det tredje, som var et prektig hjørneværelse med en vidunderlig utsikt mot nord. Så var det en spisestue og en storstue. Kjøkkenet var i en egen bygning.</p> <p>For alt dette plus vedskjul og have betalte jeg 45 rubler om måneden. I norske penger ble det et par kroner, tenker jeg. Men jeg var rundhåndet. Jeg la på til 60 rubel da fader Noa en dag, med begredelig stemme og megen rykking i sitt lange skjegg hadde uttalt seg om tidenes pinaktighet og de økende prisene.</p> <p>”45 rubel? Hva er det for noe, Konrad Ivanovitsch? De må selv forstå at det er for lite!”</p> <p>Joda. Jeg forstod. Derfor la jeg på også og min vert ble så begeistret at jeg ble hentet inn til ham og traktert med både vått og tørt, samt presentert for hans barn, av hvilke en liten pike var '’lilliput'’- dvs dverg. Men dverg heter merkelig nok ”lilliputter”på russisk.</p> <p>Da jeg en gang fortalte min venn Gorski om dette, sa han:</p> <p>”Det er mange dverger blandt grusinerne som jo i regelen er høye, flotte folk. Men de drikker for mye. I generasjoner, i hundreder og tusener av år har grusinerne tyllet i seg vin og brennevin, så rasen viser tegn på degenerasjon. Det er derfor ikke det grann rart i at noen av ungene er dverger.”</p> <p>Men om den vesle jentungen til Noa var dverg, var hun ikke ulykkelig for det. Hun hoppet og spratt og sang like godt som noen annen og var med på alle spillopper, fra å kaste sand på hønene til å erte terrieren min, eller dra katta i rumpa!</p> <p>Da Faye reiste, hadde jeg nemlig fått to gaver med liv i:  Den ene var en glatthåret, svart og hvit terrier som lød navnet ”Munk”. Den andre var en svart kattunge som ble omtalt som ”Mons”. ’Munk’ begynte som min fiende, men ble etter hvert min hjertevenn. ’Mons’ derimot startet med maling, solskinn og halen rett i været, men utviklet seg til en djevel og endte derfor sine dager med en kule gjennom skallen. Og den kulen sendte jeg!</p>
 <p>Hva nå Munk angår, så kom den fra en terrier-familie som engang holdt til i Munchen. Derav navnet, som altså ikke har noe med munker og kloster å gjøre. Faye hadde fått den som hvalp av fyrst Murat som hadde den med til Kutais, en gang han hadde vært i Europa.</p> <p>Fyrst Murat trenger en forklaring: Det finnes en grusinsk fyrstefamilie Murat og den har sitt navn fra den store Murat som vil være kjent fra Napoleonstiden, i det en av den store Murat’s etterkommere utvandret til Kaukasien og slo seg ned i Grusien. I 1919 traff jeg den daværende representant for familien i det britiske hovedkvarteret i Tiflis. Faye og jeg hadde oppsøkt ham i anledning av noen eiendommer A/S Elektrokemisk hadde i nærheten av Kutais, og jeg oppdaget da at fyrst Murat var tolk for engelskmennene. Jeg erindrer ham som en høyvoksen, forholdsvis lys mann, den fullendte europeiske verdensmann.</p> <p>Det var av ham Faye hadde fått Munk, og som sagt, Munk likte meg ikke. Den skulte ondt på meg når jeg snakket høflig til den  og gikk unna, når jeg førsøkte å klappe den. Jeg tror at dens trofaste bikkjehjerte var kommet til det resultatet at jeg var skyld i at dens herre var reist. Hvilket jo for såvidt var riktig.</p> <p>Så lot jeg den være. Man skal aldri true sitt vennskap inn på bikkjer og unger. Disse vesenene har sine instinkter i orden og føler hvem som er deres venn eller uvenn. Så jeg ventet.</p> <p>Og en dag var omslaget der; En formiddag kom nemlig Munk haltende hjem, blodig og forreven, etter en drabelig kamp med et uhyre av en kjøter. Øyenvitner fortalte meg at det hadde gått varmt for seg, da Munk ikke var terrier for ingenting! Og til slutt hadde fienden flyktet! Men da var det ikke mye igjen av Munk heller!</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="byen-gylne-skinn-2.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Russland & Byen med det gylne skinn – del 2</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

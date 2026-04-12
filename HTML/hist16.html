@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist16.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist16.html" />
@@ -178,7 +275,8 @@
 <p>“Min far var bondesønn, født og oppvokst  i Skogns Markabygd, med granskogen like innpå seg. Han hadde vært gjetergutt, streifet om i skog og mark på snarefangst og bærplukking. Arbeidet et års tid hos en smed og gikk så inn på Rotvoll Landbruksskole hvor han tok eksamen. Han syntes bestemt til et friluftsliv og et langt liv,  og så satt han i alle de tyve år han var ansatt som kasserer ved Gaustad asyl på et lite kontor hvor det aldri var sol. Han fikk tuberkulose og ble knekket......</p> <p>Da far var 23 år, ekserserte han rekrutt ved artilleriet på ‘Skansen’ i Trondhjem. ‘Da jeg møtte til sesjon og stod under målestanga’ sa far, ‘stod jeg litt bøyet i knærne. Men da sa sesjonslegen: Rett opp knærne, gutt. Det er ingen skam å være lang!’.......</p>
 <p>Far fikk fin eksamen fra landbruksskolen og ble derfor ansatt som agronom ved Rotvoll sinnssykeasyl som da var under bygging. Klokker Lassen var ‘økonom’ (regnskapsfører) ved landbruksskolen, så slik ble hans datter og min far kjent........</p> <p>Far var også en tid ansatt som agronom ved Huså verk i Jemtland.....det må ha vært før han ble agronom på Rotvoll, for det er sikkert at han fra Rotvoll søkte seg over til  Eg sinnssykeasyl ved Kristiansand S.......Mens far var på Eg, sluttet han som agronom og tok i stedet stillingen som asylets kasserer.  Så søkte han seg over til Gaustad sinnssykeasyl, også der som kasserer, og dit flyttet vi på ettersommeren 1887 og leiet oss inn i en 2-etasjes villa til salmaker Brandt på ‘Brandthaugen’........Da det var gått noen år, flyttet vi til Gaustadbakken, den lille husklyngen ved nederste enden av alleen.......I 1903  flyttet vi til Vinderen stasjon på Holmenkollbanen hvor far hadde leiet en pen hjørneleilighet i 3. Etasje i murbygningen............</p>
 <p>Så fikk jeg plutselig i oktober 1908 - da jeg bodde i Steinkjær - telegram om at far var meget syk og ønsket at jeg skulle komme og overta kassererstillingen til han ble frisk igjen. Far var sengeliggende da jeg kom. Han hadde lungetuberkulose........Mandag hadde han et tilbakefall. Legen ble tilkalt og ble betenkelig. Ut på morgenkvisten skjønte jeg at det bar mot slutten........Så var det om ettermiddagen ve 5-tiden (17-tiden). Det var deilig sol. Telefontrådene hang fulle av rim og dirret glitrende i solskinnet. Jeg satt ved fars seng og holdt ham i hånden som etter hvert var blitt svært svett og slapp. Far hadde lukket øynene. Så slo han dem plutselig opp og så på meg: ‘Småguttene?’ sa han.   ‘Jeg skal ta meg av dem’ sa jeg.    Far smilte fornøyet og lukket øynene. En ganske kort stund etterpå trakk han et dypt sukk og så hadde han for alltid forlatt oss gutter som gjennom alle år, etter mors død, hadde vært hans stolthet og glede......”</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist15.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Halfdan Sundlo</span></a><a href="hist17.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Grim Saxvik</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

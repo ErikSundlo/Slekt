@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist23-kjelberg-johnsen-sundlo.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist23-kjelberg-johnsen-sundlo.html" />
@@ -173,12 +270,13 @@
 
     <main class="content-wrapper">
 <p>Kjelberg Johnsen Sundlo</p>
-<p>Kfr Konrad Bertram Holm Sundlos’ notater:</p>
+<p>Kfr <a class="xref" href="hist10-konrad-bertram-holm-sundlo.html" title="Konrad Bertram Holm Sundlo">Konrad Bertram Holm Sundlo</a>s’ notater:</p>
 <p>Født 7 desember 1814 på Sundlo, døpt 1 jan 1815 i Alstadhaug kirke.</p> <p>Oppført som eier av gården Sundlo ved matrikulering 1838.</p>
 <p>Han var gift to ganger:</p> <p>	- Den 15 juni 1840 med  Berte Andersdatter Holm (født 1799 i Fåberg). Hun 	var enke og hadde disse barna i første ekteskap (med metallstøper Ole Nilsen):</p> <p>	Nella Olsdatter f 22 mai 1826</p> <p>	Anders Olsen f 14 jan 1829</p> <p>	Christian Olsen Baroline Olsdatter f 3 nov 1833</p> <p>	Berte og alle hennes barn av første ekteskap døde under en tyfus-epidemi i 	1850-årene (Før folketellingen 1855). Det ble antatt at smitten ble bragt til 	gårds av den eldste sønnen som kom hjem fra militærtjeneste i Trondhjem.</p>
 <p>	Med  Berte hadde kjelberg Johnsen disse to barna:</p> <p>	John født 19 april 1841</p> <p>	Mortine født 16 okt 1843</p>
 <p>	- Den 2 april 1857 med Karen Bergitte Olsdatter Steinsvegan (Brågsetsveet?) 	født 5 april 1827. Med Karen hadde Kjelberg Johnsen to barn:</p> <p>	Albertine f 1858</p> <p>	Othelie f 1859</p> <p>   “Sommeren 1891 reiste jeg (Konrad Sundlo) sammen med adjunkt Augdahl og familie en tur til Trøndelag. Augdahl var fra Vedul i Åsen og sønn av klokker Olsen i Åsen. Min farfars kone nr 2 - Karen - var en søster av klokker Olsen, så min far og adjunkt Augdahl var en slags ‘fillefettere’.</p> <p>Adjunkt Augdahl sørget for at jeg ble kjent med Per Dullum som var gift med fars halvsøster Othelie (‘Telle’). Jeg hadde som bitte liten 3 eller 4-åring med mine foreldre vært til stede ved Per’s og Othelie’s bryllup, så Per og jeg var gamle kjente. Han rodde meg over Hoklingen hvor det blåste sterkt, så vannet skvatt inn i båten, og fulgte meg opp til Sundlo hvor jeg var en tid.</p> <p>Min farfar var en røslig, undersetsig kar, riktig en koselig gubbe som lot meg være med på alt mulig. Jeg spiste graut av det felles digre grautfatet sammen med slåttekarene, og - som de - stakk jeg den renslikkede hornskjeen fast i en sprekk i tømmerveggen, når jeg var forsynt. Jeg spiste også saltsild stekt på gloen, potetkake med geitost på - og hadde det storartet.</p> <p>En dag sa farfar: Hvis du vil løpe bort til Hojem og hente posten, skal du få lommeklokka mi etter meg! Og jeg avgårde etter påosten. Men jeg hadde naturligvis hentet den uten løfte om noen klokke, men nå fikk jeg den altså da farfar var død.</p> <p>Han solgte gården i nitti-årene og betinget seg - som skikk og bruk var - kår. Jeg besøkte gården en gang jeg var blitt voksen (1923) og da fortalte den nye eieren at min farfar en morgen var blitt funnet død på golvet.”</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist22.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Mortine Kjelbergsdatter Sundlo</span></a><a href="hist37-albertine-sundlo.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Albertine Sundlo</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

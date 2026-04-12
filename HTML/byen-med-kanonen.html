@@ -205,6 +205,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/byen-med-kanonen.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/byen-med-kanonen.html" />
@@ -242,7 +339,7 @@
 <p>v. Konrad Sundlo – feb. 1955</p>
 <p>(Redigert og noe forkortet v. Harald Sundlo. okt. 2000)</p>
 <p> Innhold</p>
-<ol class="doc-toc"> <li><p>Innledning</p></li> <li><p>Før 	9. april</p></li> </ol> <p> I.  ”Festningen Narvik”</p> <p> II. Narvikavsnittets militære betydning</p> <p> III. Nedrivningsarbeidet som gjorde 1940 mulig</p> <p> IV. Fronten mot havet</p> <ol class="doc-toc"> <li><p>Garnisonen 	Narvik</p></li> <li><p>Et 	trekker opp – Vi forbereder oss</p></li> <li><p>Så 	kom 9. April</p></li> <li><p>Tiden 	etter 9. April</p></li> <li><p>Slutning</p></li> </ol>
+<ol class="doc-toc doc-toc"> <li><p>Innledning</p></li> <li><p>Før 	9. april</p></li> </ol> <p> I.  ”Festningen Narvik”</p> <p> II. Narvikavsnittets militære betydning</p> <p> III. Nedrivningsarbeidet som gjorde 1940 mulig</p> <p> IV. Fronten mot havet</p> <ol class="doc-toc doc-toc"> <li><p>Garnisonen 	Narvik</p></li> <li><p>Et 	trekker opp – Vi forbereder oss</p></li> <li><p>Så 	kom 9. April</p></li> <li><p>Tiden 	etter 9. April</p></li> <li><p>Slutning</p></li> </ol>
 <h2 id="innledning">Innledning</h2>
 <p>Narvik var hverken festning eller befestet plass.</p>
 <p>Eidsivating Militære Lagmannsrett uttalte i dom av 13 mai 1947 – en dom som ble tiltrådt av Høyesterett 5. Oktober 1948:</p>
@@ -526,7 +623,8 @@
 <p>•</p>
 <p>Etter okkupasjonen ble begivenhetene i Narvik rettslig belyst ved Eidsivating Militære Lagmannsrett.</p> <p>Dommen som falt 13 mai 1947 og ble tiltrådt av Høyesterett 5 oktober 1948, gikk enstemmig ut på frifinnelse for tiltalen om forræderi.</p>
 <p>Av domspremissene kan dette være av interesse:</p> <p>’Tiltaltes disponering av sine avdelinger for strid om natten kan klandres, men situasjonen var så uryddig og vanskelighetene så store på grunn av uværet og avdelingenes ringe styrke i forhold til områdets utstrekning, at retten ikke antar at straff kan komme til anvendelse. Om de faktiske forhold vises til den tidligere fremstilling. Dette gjelder også inngåelsen av ’våpenhvilen’. Den kan ikke, i og for seg, ansees rettsstridig.</p> <p>At han ikke gjorde noe for å etablere en demarkasjonsslinje og ikke protesterte mot tyskernes fremrykking mv som i tiltalebeslutningen omhandlet, kan ikke gjøre ham straffskyldig. Ethvert forsøk i nevnte retning måtte, etter situasjonen, anses fruktesløst. …….</p> <p> Heller ikke finnes tiltalte straffskyldig for å ha latt seg ta til fange uten å gjøre tilbørlig motstand. Vanskelighetene utviklet seg så hurtig og overmakten var så stor, at det ikke ville være rettferdig å trekke ham til ansvar for ikke å ha undratt seg fangenskap……</p> <p>Retten er enstemmig av den oppfatning at Narvik by ikke var festning eller befestet plass, selv om det var en del mer eller mindre forberedte stillinger innen byens område; to blokkhus og skyttergravstillinger besatt. Narvik må anses som åpen by og overgivelsen anses foregått i åpen mark.</p> <p> Retten finner at tiltaltes forhold mht overgivelsen, under givne forhold ikke kan anses straffbart. Utviklingen var på det tidspunkt bragt til det stadium at tiltalte og hans tropper var omringet av en helt overlegen fiende. Alle midler til forsvar var å anse for uttømt i lovens forstand, selv om de i det hele tatt ikke var satt inn, og enhver utsikt til å slå seg igjennom eller til å få betimelig unnsetning måtte fremstille seg som utelukket. Tiltalte måtte treffe en øyeblikkelig avgjørelse og veie den sansynlige katastrofale følge av motstand på det tidspunkt mot plikten til å hevde landets og sin egen ære ved å nekte overgivelse og utsette byen for beskyting, også fra krigsskipene….. Ingen av hans offiserer, ingen av byens myndigheter har derfor kritisert overgivelsen i og for seg….’</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="byen-gylne-skinn-3-nansen.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Russland & Byen med det gylne skinn – del 3 og Nansen</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist17.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist17.html" />
@@ -174,9 +271,10 @@
     <main class="content-wrapper">
 <p>Grim Saxvik</p>
 <p>Født 1827 død 1923</p>
-<p>Fra Konrad Bertram Holm Sundlo’s notater:</p>
+<p>Fra <a class="xref" href="hist10-konrad-bertram-holm-sundlo.html" title="Konrad Bertram Holm Sundlo">Konrad Bertram Holm Sundlo</a>’s notater:</p>
 <p>“Grim Saxvik var uten tvil en glimrende intelligens. Men hard, hard som flint. Diktatortype. Han var opprinnelig underofiser i artilleriet, hvor han drev det til å bli kommandersersjant. Senere ble han postkjører. Jeg har inntrykk av at han kjørte ruten Trondhjem-Namsos......Da han sluttet som postkjører, ble han grindåpner på jernbanen ned på Brattøra i det Meråkerbanen i hans tid krysset gaten i høyde med gatelegemet.</p> <p>Da han ble riktig gammel, ble han underholdt av sønnene......Christian Saxvik omtalte ofte gamle Grim som ‘Griskallen’, fordi han alltid var skitten og ustelt, når han kom til Hommelvika.....Jeg hørte sønnen Christian en gang sa:  ‘Som liten gutt hørte jeg en gang mor si til ‘kallen’ at vi barn måtte få skikkelig skolegang. Men da svarte han: Det er ikke nødvendig. Det blir så ikke annet enn fraukjørere (gjødselkjørere) av dem allikevel.’  ‘Det er vår mor som har gjort folk av oss’ sa Christian. ‘Hun søkte alltid å få oss frem.’……….</p> <p>…Hans far hadde deltatt i krigen 1807/08 og marsjerte fra Trondhjem til Østerdalen, hvor han deltok i slaget ved Trangen. Kosten under denne lange marsj på vinterføre bestod av klippfisk og umalt havre.</p> <p>Grim fortalte videre at den tid han var uneroffiser fikk soldatene ikke kaffe eller melk til frokost, men en pæl brennevin. Han hadde deltatt i samlingen på ’Axevalla Hed’ i Sverige, der det var samlet både svenske og norske tropper. Såvidt jeg husker var dette omkring 1855/60…..  “</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist16.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">John Kjelbergsen Sundlo</span></a><a href="hist22.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Mortine Kjelbergsdatter Sundlo</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

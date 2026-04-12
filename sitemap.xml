@@ -1411,4 +1411,49 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/russland-byen-gylne-skinn-1.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://eriksundlo.github.io/Slekt/HTML/de/russland-byen-gylne-skinn-1.html" />
   </url>
+  <url>
+    <loc>https://eriksundlo.github.io/Slekt/about.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://eriksundlo.github.io/Slekt/de/about.html" />
+  </url>
+  <url>
+    <loc>https://eriksundlo.github.io/Slekt/en/about.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://eriksundlo.github.io/Slekt/de/about.html" />
+  </url>
+  <url>
+    <loc>https://eriksundlo.github.io/Slekt/de/about.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://eriksundlo.github.io/Slekt/de/about.html" />
+  </url>
+  <url>
+    <loc>https://eriksundlo.github.io/Slekt/slektstre.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eriksundlo.github.io/Slekt/tidslinje.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eriksundlo.github.io/Slekt/navneregister.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

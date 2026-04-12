@@ -145,6 +145,103 @@
     .lang-sep  { color:rgba(255,255,255,0.28); }
     .nav-about { margin-left:auto; opacity:0.75; }
     .nav-about:hover { opacity:1; }
+    /* Reading time badge */
+    .reading-time {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.3px;
+    }
+
+    /* Search link in nav */
+    .nav-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.75;
+        font-size: 0.82rem;
+    }
+    .nav-search:hover { opacity: 1; }
+    .nav-search svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    /* Prev/Next navigation */
+    .doc-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 3em;
+        padding-top: 1.5em;
+        border-top: 2px solid var(--border, #ddd5c8);
+    }
+    .doc-nav a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        border: 1px solid var(--border, #ddd5c8);
+        border-radius: 8px;
+        max-width: 48%;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+    }
+    .doc-nav a:hover {
+        border-color: var(--gold, #9a6e1a);
+        box-shadow: 0 2px 8px rgba(28,53,87,0.1);
+        text-decoration: none;
+    }
+    .doc-nav .nav-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted, #7a726b);
+    }
+    .doc-nav .nav-title {
+        font-family: 'Lora', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--navy, #1c3557);
+    }
+    .doc-nav a:hover .nav-title {
+        color: var(--gold, #9a6e1a);
+    }
+    .doc-nav .next {
+        margin-left: auto;
+        text-align: right;
+    }
+
+    /* Cross-reference links */
+    a.xref {
+        color: var(--navy, #1c3557);
+        border-bottom: 1px dashed var(--gold, #9a6e1a);
+        text-decoration: none;
+    }
+    a.xref:hover {
+        color: var(--gold, #9a6e1a);
+        border-bottom-style: solid;
+    }
+
+    /* Print styles */
+    @media print {
+        nav.top-nav, footer.page-footer, .toc, .doc-nav, .reading-time { display: none; }
+        .page-header { background: none !important; color: #000 !important; border-bottom: 2px solid #333; padding: 20px 0; }
+        .page-header h1 { color: #000; font-size: 1.6rem; }
+        .content-wrapper { box-shadow: none; padding: 20px 0; max-width: 100%; }
+        body { background: #fff; font-size: 11pt; line-height: 1.5; }
+        a { color: #000; text-decoration: none; }
+        a.xref { border-bottom: none; }
+        a.xref::after { content: ' [→ ' attr(title) ']'; font-size: 0.85em; color: #666; }
+    }
+
     </style>
     <link rel="alternate" hreflang="nb" href="https://eriksundlo.github.io/Slekt/HTML/hist235.html" />
     <link rel="alternate" hreflang="en" href="https://eriksundlo.github.io/Slekt/HTML/en/hist235.html" />
@@ -173,7 +270,7 @@
 
     <main class="content-wrapper">
 <p> Johannes Gundersen,Levanger:</p>
-<p> Harald Sundlo f. 09.06.1927 bemerker:</p> <p> ‘Jeg kom først i kontakt med Johs. gjennom Fauskerud på Opplandsarkivet, Maihaugen. Johs. var da i ferd med å forske i historien om utvandring fra Gudbrandsdalen til Trøndelag og jeg var interessert i å få vite om han hadde opplysninger om Anders Larsen Holm. Johs. viste seg å være en gullgrube av informasjon og hjalp meg svært meget i slektsarbeidet. Vi ble etter hvert gode venner og vi har besøkt hverandre, resp. I Odins veg 3 i Levanger og i Erlands veg 13 i Asker.</p> <p> Johs hadde en vanskelig barndom, ble satt bort til andre som liten, og hadde få muligheter til å lese - noe som var en lidenskap for ham. Men han kom seg frem i verden allikevel, ble formann på et mekanisk verksted, studerte samtidig og var til slutt lærer (rektor?) på yrkesskolen på Gran på Hedemarken.</p> <p> Johs forteller lite om sin barndom, den er vanskelig for ham å rippe opp i. Tragedien er jo også at hans mor ble satt bort som liten. Det var harde tider i Trøndelag den gangen.</p>
+<p> Harald Sundlo f. 09.06.1927 bemerker:</p> <p> ‘Jeg kom først i kontakt med Johs. gjennom Fauskerud på Opplandsarkivet, Maihaugen. Johs. var da i ferd med å forske i historien om utvandring fra Gudbrandsdalen til Trøndelag og jeg var interessert i å få vite om han hadde opplysninger om <a class="xref" href="hist119.html" title="Anders Larsen Holm">Anders Larsen Holm</a>. Johs. viste seg å være en gullgrube av informasjon og hjalp meg svært meget i slektsarbeidet. Vi ble etter hvert gode venner og vi har besøkt hverandre, resp. I Odins veg 3 i Levanger og i Erlands veg 13 i Asker.</p> <p> Johs hadde en vanskelig barndom, ble satt bort til andre som liten, og hadde få muligheter til å lese - noe som var en lidenskap for ham. Men han kom seg frem i verden allikevel, ble formann på et mekanisk verksted, studerte samtidig og var til slutt lærer (rektor?) på yrkesskolen på Gran på Hedemarken.</p> <p> Johs forteller lite om sin barndom, den er vanskelig for ham å rippe opp i. Tragedien er jo også at hans mor ble satt bort som liten. Det var harde tider i Trøndelag den gangen.</p>
 <p> Ved et brev til meg dat 2 feb 1995  sendte Johs. meg følgende avskrift:</p>
 <p> “   Til minne om mor</p>
 <p> Min mor Bertha Kristine var født 2. Februar 1877.</p>
@@ -195,7 +292,8 @@
 <p> Jhs. Gundersen”</p>
 <p> Johs. Skrev også følgende artikkel i tidsskriftet for Sparbu historielag:</p>
 <h2 id="bortsatt-som-7-åring">Bortsatt som 7-åring</h2> <p> Det er holdt for å være riktig å etterkomme ønsker som man blir bedt om å oppfylle.</p> <p> Det er med blandede følelser jeg tar til å skrive om mine år som barn. Jeg har undertiden overvunnet mine motforestillinger, da jeg har oppfattet det slik, at det er folk i Sparbu Historielag som står bak ønsket som er begrunnet ut fra at det kan ha en viss verdi å få innblikk i et vergerådsbarns oppvekst, hva som måtte ha forbindelse med dette.</p> <p> Må jeg først si noe om mine før nevnte betenkeligheter. Jeg håper å bli trodd på det jeg forteller. Det har vært nødvendig å stole på det. Her er det som skrives bare sannhet. Heldigvis er vel ikke det jeg forteller realiteter i dag. Det kan sies å ha både pluss og minus verdi å måtte arbeide fra man stod opp ved sjutiden om morgenen da arbeidsdagen begynte også for niåringen, og som varte hele dagen. Hva var så lengden på dagen? Tro meg eller ikke. Nå nærmer jeg meg grensen til det jeg kan regne med at en som leser dette vil godta som sant, i så fall forstår jeg det godt.</p> <p> Det siste jeg gjorde om dagen var å gi min beste venn, den lille brune vallaken, det siste av mat før natten. Da var klokken ni, eller kl. 21 som vi sier i dag.</p> <p> Det som kan føres på pluss-siden, var at han viste sin tilfredshet ved en humring som velkomst. Ingen kunne ta i mot meg med en lignende tilfredshet, det jeg kan minnes.</p> <p> Nå er det vel på tide å gjøre kjent hvem som skriver dette. Det er Johannes Gundersen, født i Sparbu 19 april 1913 i Haugaleira som i sin tid var en husmannsplass og som ble kjøpt av mine foreldre. De var Bertha Kristine, født Holm, og Bernt Ditlev Gundersen. Hun hadde sine slektsaner fra Fåberg i Gudbrandsdalen, han fra Elverum i Østerdalen. Dette med mine foreldre er vel ikke så interessant. Vi var tre år etter at jeg var født blitt en familie på seks personer, da det kom en gutt til, Øivind.</p> <p> Det som kom til å bestemme ikke så lite for oss som familie, var at far ble syk og døde like før jul 1918. Vi bodde da på Åsheim forsamlingshus hvor mor hadde renholdet. Det at far ble arbeidudyktig var vel årsaken til at Haugaleira ble solgt og mor måtte overta å forsørge oss.</p> <p> Mor kunne jo ikke makte det hun ble stillet overfor, og det gikk ikke lengere enn til våren 1920. Ingebjørg som var 17 år i 1919 ble gift da. Malene, som var 11 år, og jeg 7 år ble ‘satt bort’ våren 1920. Når jeg bruker ordet ‘satt bort’ er nok det bare noen ord i språket, men for den det rammer har det en videre spennvidde.</p> <p> Mitt oppholdssted ble småbruket Løkka. Det at jeg kom dit, tror jeg var en tilfeldighet.</p> <p> Gustav Gundersen, skomakeren som da eiet Løkka, kom en dag forbi Åsheim, så at jeg satt på trappa og spurte om jeg ville være med ham heim. Dette må mor ha hørt, så var det da straks etter, en søndag, oppholdet der tok til, og som ble av ti års varighet.</p> <p> Det var før dette, mor og jeg var på Gustad hos det barnløse gårdbrukerparet Kristian Lorås og kona Karen. De hadde nok lyst på å ha en gutt som kanskje kunne overta gården. At det ikke ble noen gårdbruker av meg har neppe samfunnet  tapt noe på.</p> <p> Og så var det å være vergerådsbarn  da.</p> <p> Årsaken til at noen ble det kan vel være så høyst forskjellig. I dag er det jo også et ord. Det har vel også en annen betydning og et annet innhold. Grunnen til at det rammet meg er, håper jeg, klar. Så må det kort sies at kommunen betalte kr. 12.- for oppholdet i Løkka, inntil jeg var 12 år.</p> <p> Vergerådet så jeg ikke noe til. Det skulle vel være slik. Var det mulig fordi det ble oppfattet slik som det ble sagt, at jeg hadde det godt? Var det fordi, som det også ble sagt, at jeg var en snill gutt? En omtale om denne min ypperlige karakteregenskap lar jeg være, for jeg tror jeg har lært meg å tenke selv.</p> <p> Jeg har ingen motvilje mot å fortelle at jeg mange netter har ligget og bedt til Gud. Ensomhet og ingen å betro seg til er ikke det beste for et barn, når det synes å ha behov for trøst og hjelp. Mors fang og fars hånd har i denne perioden av livet en større verdi enn det blir tenkt over.</p> <p> Jeg hadde den lykke å trives med skolegangen. De fagene som var de beste for meg var norsk og historie. Dette har jeg hatt både nytte og glede av senere i livet. Det som er å beklage er, at jeg ikke allerede fikk videre skolegang, men det må glemmes. Må det være tillatt å antyde at det magre miljøet var en hindring?</p> <p> Jeg vil gjerne skrive litt mere om skolegangen. Begynte på Mære folkeskole den 15 sept 1920. Mon første lærerinne var Målfrid Homnes. Videre nevner jeg Jorid Skarland og ikke å glemme skolemesteren selv, Edvard Wekre. En mann det stod respekt av.</p> <p> I takknemlighet minnes jeg prost Knut Eik-Nes.</p> <p> En etter min egen bedømmelse stor opplevelse i skolen var da prosten var på besøk, da jeg gikk i femte klasse og ble bedt om å fortelle om Jesu fødsel. En stor stund for en forsagt gutt. Kanskje var dette årsaken til at tanken kom om å bli prest?</p> <p> Må jeg så be om å få nevne litt om begrepet isolasjon. Det hører vel inn under det jeg nå skriver. Bra er det vel ikke å være utestengt fra samvær med jevnaldrende, heller ikke fra sine egne. Å måtte be om å få gå til Ingebjørg, som bodde på Leira, noen søndager, ble til slutt en plage som til slutt heller ikke ble gjort.</p> <p> Henrik Ibsen, som har lært meg mye, lar doktor Stockman si:’Den står sterkest i verden som står alene’. Dette og mye annet har jeg tenkt mye på.</p> <p> Det å være alene førte også til, tror jeg, at man tenkte i baner som var ualminnelige.</p> <p> Hva kan sies om at   jeg alt i 12 års alderen undret på hvordan det kunne bli, når jeg ble gammel? Var det meningsløst, eller sier det noe om min tilværelse?</p> <p> Den tålmodige leser synes vel å ha fått nok, men tilgi meg, når jeg uttrykker dette: Ingen ting er som å være i trygghet heime hos mor og far. Det er, håper jeg, ikke rart at jeg sier dette, men nettopp fordi jeg ikke var så heldig, drister jeg meg til disse ordene.</p> <p> Den 3 mars 1930 var avreisedageb fra Løkka og mor fikk sin eldste sønn tilbake. Det var ikke mors fang, for gutten var blitt stor, men det var mors gode armer som tok i mot og det behøvdes, for til tross for alderen, snart 17 år, var det godt å bli møtt med hjertelag.</p> <p> Så til slutt: Den viktigste lærdom var vel at man må stole på seg selv.”</p>
-</main>
+
+<nav class="doc-nav" aria-label="Dokumentnavigasjon"><a href="hist163.html" class="prev"><span class="nav-label">Forrige</span><span class="nav-title">Gjørtleren på Jøråshaugen – Christian Andersen Holm</span></a><a href="hist274.html" class="next"><span class="nav-label">Neste</span><span class="nav-title">Harald Hårfagre</span></a></nav></main>
 
     <footer class="page-footer">
         Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tidslinje – Historisk arkiv</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#1c3557;--navy-light:#2a4a7a;--gold:#9a6e1a;--gold-light:#f5edda;--cream:#faf7f2;--paper:#ffffff;--text:#2d2929;--text-muted:#7a726b;--border:#ddd5c8;--shadow:rgba(28,53,87,0.12);}
+    body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.85;font-size:17px;min-height:100vh;}
+    a{color:var(--navy);text-decoration:none;} a:hover{color:var(--gold);text-decoration:underline;}
+    nav.top-nav{background:var(--navy);padding:12px 30px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+    nav.top-nav a{color:rgba(255,255,255,0.88);font-size:0.88rem;font-weight:600;letter-spacing:0.3px;}
+    nav.top-nav a:hover{color:#fff;text-decoration:none;}
+    nav.top-nav .nav-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:12px;}
+    .page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:white;padding:55px 30px 50px;text-align:center;border-bottom:4px solid var(--gold);}
+    .page-header h1{font-family:'Lora',Georgia,serif;font-size:2.1rem;font-weight:600;line-height:1.3;max-width:760px;margin:0 auto;}
+    .page-header p{margin-top:10px;opacity:0.85;font-size:1rem;}
+    .content-wrapper{max-width:800px;margin:0 auto;padding:50px 30px 80px;background:var(--paper);box-shadow:0 0 40px var(--shadow);min-height:60vh;}
+
+    .timeline{position:relative;padding-left:40px;}
+    .timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--navy));border-radius:2px;}
+    .timeline-era{margin-bottom:2.5em;}
+    .timeline-era h2{font-family:'Lora',Georgia,serif;color:var(--navy);font-size:1.25rem;font-weight:600;margin-bottom:1em;padding-bottom:6px;border-bottom:1px solid var(--border);}
+    .tl-item{position:relative;margin-bottom:1.5em;padding-left:16px;}
+    .tl-item::before{content:'';position:absolute;left:-32px;top:6px;width:12px;height:12px;background:var(--gold);border:3px solid var(--paper);border-radius:50%;box-shadow:0 0 0 2px var(--gold);}
+    .tl-year{font-family:'Lora',Georgia,serif;font-weight:600;color:var(--gold);font-size:1rem;margin-bottom:2px;}
+    .tl-text{font-size:0.95rem;color:var(--text);line-height:1.6;}
+    .tl-text a{font-weight:600;}
+    .tl-tag{display:inline-block;margin-top:4px;padding:2px 8px;background:var(--gold-light);border-radius:4px;font-size:0.78rem;color:#5b4d2f;}
+
+    footer.page-footer{text-align:center;padding:28px 30px;background:var(--navy);color:rgba(255,255,255,0.55);font-size:0.82rem;}
+    footer.page-footer a{color:rgba(255,255,255,0.7);}
+
+    @media print{nav.top-nav,footer.page-footer{display:none;}.page-header{background:none!important;color:#000!important;border-bottom:2px solid #333;padding:20px 0;}.page-header h1{color:#000;}.content-wrapper{box-shadow:none;padding:20px 0;max-width:100%;}body{background:#fff;}.timeline::before{background:#333;}.tl-item::before{background:#333;box-shadow:none;border-color:#fff;}}
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html">Historisk arkiv</a>
+            <span style="color:rgba(255,255,255,0.35)">·</span>
+            <a href="index.html">Tilbake til oversikten</a>
+        </div>
+    </nav>
+    <header class="page-header">
+        <h1>Tidslinje</h1>
+        <p>Viktige hendelser i Sundlo- og Ringset-slektenes historie</p>
+    </header>
+    <main class="content-wrapper">
+        <div class="timeline">
+
+            <div class="timeline-era">
+                <h2>Tidlige røtter</h2>
+                <div class="tl-item">
+                    <div class="tl-year">ca. 850</div>
+                    <div class="tl-text"><a href="HTML/hist274.html">Harald Hårfagre</a> og <a href="HTML/hist282.html">Halvdan Svarte</a> – de eldste genealogiske tilknytningene i arkivet.</div>
+                    <span class="tl-tag">Genealogi</span>
+                </div>
+            </div>
+
+            <div class="timeline-era">
+                <h2>1600–1700-tallet</h2>
+                <div class="tl-item">
+                    <div class="tl-year">1600-tallet</div>
+                    <div class="tl-text"><a href="HTML/hist3.html">Jørgen Pederssøn Schjelderup</a> – tidlig stamfar i Sundlo-linjen.</div>
+                    <span class="tl-tag">Sundlo-slekten</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">Tidlig 1700-tall</div>
+                    <div class="tl-text"><a href="HTML/hist208.html">Michel Baade</a> ankommer Bergen som hanseatisk kjøpmann fra Mecklenburg.</div>
+                    <span class="tl-tag">Baade-slekten</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1700-tallet</div>
+                    <div class="tl-text"><a href="HTML/hist209.html">Hans Baade</a>, <a href="HTML/hist212.html">Peter Baade</a> og <a href="HTML/hist213.html">Steffen Baade</a> i Bergen.</div>
+                    <span class="tl-tag">Baade-slekten</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1700-tallet</div>
+                    <div class="tl-text"><a href="HTML/hist5.html">Hans Nielsen Speilberg</a> – prestefamilien Speilberg.</div>
+                    <span class="tl-tag">Speilberg-slekten</span>
+                </div>
+            </div>
+
+            <div class="timeline-era">
+                <h2>1800-tallet</h2>
+                <div class="tl-item">
+                    <div class="tl-year">1800-tallet</div>
+                    <div class="tl-text"><a href="HTML/hist9-conrad-lassen.html">Conrad Lassen</a>, <a href="HTML/hist139-peder-paulsen-leth.html">Peder Paulsen (Leth)</a>, <a href="HTML/hist142-paul-pedersen-dons.html">Paul Pedersen Dons</a> og andre i Sundlo/Speilberg-kretsen.</div>
+                    <span class="tl-tag">Sundlo-slekten</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1881</div>
+                    <div class="tl-text"><a href="HTML/hist10-konrad-bertram-holm-sundlo.html">Konrad Bertram Holm Sundlo</a> født.</div>
+                    <span class="tl-tag">Sundlo-slekten</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1800-tallet</div>
+                    <div class="tl-text"><a href="HTML/hist210.html">Daniel Baade</a> i Grønlandsmisjonen og <a href="HTML/hist255.html">Michael Baade</a> som misjonær i Porsanger.</div>
+                    <span class="tl-tag">Baade-slekten</span>
+                </div>
+            </div>
+
+            <div class="timeline-era">
+                <h2>1900-tallet</h2>
+                <div class="tl-item">
+                    <div class="tl-year">1919</div>
+                    <div class="tl-text">Konrad Sundlo i <a href="HTML/russland-byen-gylne-skinn-1.html">Kaukasus og Russland</a> – nedskrevet i «Byen med det gylne skinn».</div>
+                    <span class="tl-tag">Konrad Sundlo forteller</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1927</div>
+                    <div class="tl-text">Harald Sundlo født – sønn av Konrad og Katrine Sundlo.</div>
+                    <span class="tl-tag">Sundlo-slekten</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">9. april 1940</div>
+                    <div class="tl-text">Konrad Sundlo overgir <a href="HTML/byen-med-kanonen.html">Narvik</a> til tyske styrker – en av de mest omstridte hendelsene i norsk krigshistorie.</div>
+                    <span class="tl-tag">Krigshistorie</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1941–1945</div>
+                    <div class="tl-text">Norske frivillige i <a href="HTML/Legiogri.html">Den Norske Legion</a>, <a href="HTML/5konordl.html">Regiment Nordland</a> og <a href="HTML/Skibat.html">Skibataljonen</a> på Østfronten.</div>
+                    <span class="tl-tag">Krigshistorie</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1965</div>
+                    <div class="tl-text">Konrad Bertram Holm Sundlo dør.</div>
+                    <span class="tl-tag">Sundlo-slekten</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1992–1994</div>
+                    <div class="tl-text">Harald Sundlo transkriberer farens notater og samler slektshistorisk materiale i Asker.</div>
+                    <span class="tl-tag">Arkivets opprinnelse</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">2019</div>
+                    <div class="tl-text">Harald Sundlo dør.</div>
+                    <span class="tl-tag">Sundlo-slekten</span>
+                </div>
+            </div>
+
+            <div class="timeline-era">
+                <h2>2020-tallet</h2>
+                <div class="tl-item">
+                    <div class="tl-year">2025</div>
+                    <div class="tl-text">Jan P. Pettersen utgir <em>Oberst Konrad Sundlo</em> – ny gjennomgang av rettsdokumentene.</div>
+                    <span class="tl-tag">Litteratur</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">2025</div>
+                    <div class="tl-text">Erik Sundlo digitaliserer og publiserer arkivet på nett.</div>
+                    <span class="tl-tag">Arkivet</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer class="page-footer">
+        Historisk arkiv – Sundlo og Ringset-slektene &nbsp;|&nbsp;
+        <a href="index.html">Tilbake til oversikten</a>
+    </footer>
+</body>
+</html>

@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://eriksundlo.github.io/Slekt/sitemap.xml
+Sitemap: https://eriksundlo.github.io/Slekt/sitemap2.xml
 

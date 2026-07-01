@@ -2,7 +2,7 @@
 
 A digital archive of family history, biographies, and historical documents related to the Sundlo and Ringset families from Norway.
 
-**Live site:** https://eriksundlo.github.io/Slekt/
+**Live site:** https://www.sundlospeilberg.no/
 
 ## About
 
@@ -30,8 +30,13 @@ python reformat.py
 
 # Stage 2: Enhance with headings, anchors, and table of contents
 python enhance.py
+
+# Stage 3: Fill in SEO tags (canonical, hreflang, meta description) where missing
+python seo_fill.py
 ```
 
 ## Deployment
 
-Static HTML served by GitHub Pages. Push to `master` to deploy.
+Static HTML served by GitHub Pages on the custom domain
+**https://www.sundlospeilberg.no/** (configured via the `CNAME` file plus DNS).
+Push to `master` to deploy.
